@@ -72,7 +72,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "sakkar",
     title: "Sakkar",
-    category: "Marca",
+    category: "IDENTIDADE VISUAL",
     year: "2022",
     cover: sakkarAsset.url,
     alt: "Capa do projeto Sakkar",
