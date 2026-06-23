@@ -112,7 +112,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "joana-lili",
     title: "Joana e Lili",
-    category: "Beauty Branding",
+    category: "IDENTIDADE VISUAL",
     year: "2024",
     cover: joanaLiliAsset.url,
     alt: "Capa do projeto Joana e Lili",
