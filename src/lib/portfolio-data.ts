@@ -82,7 +82,7 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "braza-io",
     title: "Braza.io\n",
-    category: "Visual Digital",
+    category: "IDENTIDADE VISUAL",
     year: "2025",
     cover: brazaAsset.url,
     alt: "Capa do projeto Braza.io",
