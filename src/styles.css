@@ -288,6 +288,7 @@
   .project-card-meta strong {
     font-size: 1rem;
     color: var(--color-foreground);
+    white-space: pre-wrap;
   }
 
   .portfolio-footer {
