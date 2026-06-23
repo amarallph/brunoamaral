@@ -45,7 +45,7 @@ function GridPage() {
           <span aria-hidden="true" className="view-switcher-sep">/</span>
           <Link to="/grid" className="view-switcher-link" data-active="true">Grid</Link>
           <span aria-hidden="true" className="view-switcher-sep">/</span>
-          <Link to="/gallery" className="view-switcher-link">Gallery</Link>
+          <a href="/#gallery" className="view-switcher-link">Gallery</a>
         </nav>
 
         <div className="portfolio-links">
