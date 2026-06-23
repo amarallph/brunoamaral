@@ -85,7 +85,7 @@ export const portfolioProjects: PortfolioProject[] = [
     category: "Visual Digital",
     year: "2025",
     cover: brazaAsset.url,
-    alt: "Capa do projeto Brandt Identtlly",
+    alt: "Capa do projeto Braza.io",
     summary: "Direção visual para mídia digital com contraste alto, tipografia ampla e impacto de escala expositiva.",
     behanceUrl: "https://www.behance.net/gallery/235552427/brandt-identtlly",
   },
