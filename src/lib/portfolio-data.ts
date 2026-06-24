@@ -31,7 +31,7 @@ export const profile = {
 export const portfolioProjects: PortfolioProject[] = [
   {
     id: "inimigos-do-pace",
-    title: "INIMIGOS DO PACE × NEW BALANCE",
+    title: "INIMIGOS DO PACE X NB",
     category: "Campanha",
     year: "2025",
     cover: inimigosDoPaceAsset.url,
