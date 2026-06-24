@@ -31,11 +31,11 @@ export const profile = {
 export const portfolioProjects: PortfolioProject[] = [
   {
     id: "inimigos-do-pace",
-    title: "Inimigos do Pace × New Balance",
+    title: "INIMIGOS DO PACE × NEW BALANCE",
     category: "Campanha",
     year: "2025",
     cover: inimigosDoPaceAsset.url,
-    alt: "Capa do projeto Inimigos do Pace × New Balance",
+    alt: "Capa do projeto INIMIGOS DO PACE × NEW BALANCE",
     summary: "Peça de comunicação com linguagem urbana, energia esportiva e forte construção de pertencimento visual.",
     behanceUrl: "https://www.behance.net/gallery/235549067/Inimigos-do-Pace-New-Balance",
   },
