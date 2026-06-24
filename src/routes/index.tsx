@@ -1,37 +1,23 @@
-import { useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ExternalLink, Grid3X3, List, Images, Linkedin } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { profile, portfolioProjects, type PortfolioProject } from "@/lib/portfolio-data";
 
 type ViewMode = "list" | "grid" | "gallery";
 
-const modeLabels: { id: ViewMode; label: string; icon: typeof List }[] = [
-  { id: "list", label: "List", icon: List },
-  { id: "grid", label: "Grid", icon: Grid3X3 },
-  { id: "gallery", label: "Gallery", icon: Images },
-];
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Portfólio | Projetos selecionados" },
+      { title: `${profile.name} — ${profile.role}` },
       {
         name: "description",
-        content: "Portfólio com seleção de projetos de identidade visual, branding e design digital.",
+        content:
+          "Portfólio de Bruno Amaral — identidade visual, branding e design digital. Visualize projetos em lista, grid ou galeria.",
       },
-      { property: "og:title", content: "Portfólio | Projetos selecionados" },
+      { property: "og:title", content: `${profile.name} — ${profile.role}` },
       {
         property: "og:description",
-        content: "Portfólio com seleção de projetos de identidade visual, branding e design digital.",
+        content: "Projetos selecionados de identidade visual, branding e design digital.",
       },
     ],
   }),
@@ -40,117 +26,227 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [mode, setMode] = useState<ViewMode>("list");
-  const [activeProject, setActiveProject] = useState<PortfolioProject | null>(null);
+  const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
 
-  const projects = useMemo(() => portfolioProjects, []);
+  const openGallery = (index: number) => {
+    setMode("gallery");
+    setGalleryIndex(index);
+  };
 
   return (
-    <div className="portfolio-shell">
-      <header className="portfolio-header">
-        <a href="/" className="portfolio-brand" aria-label="Início do portfólio">
-          {profile.name}
-        </a>
+    <div className="ec-shell">
+      <Header mode={mode} setMode={setMode} onAnyChange={() => setGalleryIndex(null)} />
 
-        <div className="view-switcher" role="tablist" aria-label="Modo de visualização">
-          {modeLabels.map(({ id, label, icon: Icon }) => (
-            <button
-              key={id}
-              type="button"
-              role="tab"
-              aria-selected={mode === id}
-              onClick={() => setMode(id)}
-              className="view-switcher-button"
-              data-active={mode === id}
-            >
-              <Icon aria-hidden="true" />
-              <span>{label}</span>
-            </button>
-          ))}
-        </div>
-
-        <div className="portfolio-links">
-          <a href={profile.behanceUrl} target="_blank" rel="noreferrer">
-            Behance
-          </a>
-          <a href={profile.linkedinUrl} target="_blank" rel="noreferrer">
-            <Linkedin aria-hidden="true" /> LinkedIn
-          </a>
-        </div>
-      </header>
-
-      <main className="portfolio-main">
-        <h1 className="sr-only">Portfólio de projetos</h1>
-
-        <section className="intro-block" aria-label="Apresentação">
-          <p className="intro-kicker">Portfólio</p>
-          <h2>{profile.role}</h2>
-          <p>{profile.bio}</p>
-        </section>
-
-        <section className="projects-block" aria-label="Projetos">
-          {mode === "list" && (
-            <ul className="projects-list-mode">
-              {projects.map((project) => (
-                <li key={project.id}>
-                  <button type="button" onClick={() => setActiveProject(project)}>
-                    {project.title}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {mode !== "list" && (
-            <div className={mode === "grid" ? "projects-grid" : "projects-gallery"}>
-              {projects.map((project) => (
-                <button
-                  type="button"
-                  key={project.id}
-                  className="project-card"
-                  onClick={() => setActiveProject(project)}
-                >
-                  <img src={project.cover} alt={project.alt} loading="lazy" />
-                  <div className="project-card-meta">
-                    <span>{project.category}</span>
-                    <strong>{project.title}</strong>
-                  </div>
-                </button>
-              ))}
-            </div>
-          )}
-        </section>
+      <main className="ec-main">
+        {mode === "list" && <ListView projects={portfolioProjects} onOpen={openGallery} />}
+        {mode === "grid" && <GridView projects={portfolioProjects} onOpen={openGallery} />}
+        {mode === "gallery" && (
+          <GalleryView
+            projects={portfolioProjects}
+            index={galleryIndex ?? 0}
+            setIndex={setGalleryIndex}
+            onClose={() => setMode("list")}
+          />
+        )}
       </main>
 
-      <footer className="portfolio-footer">
-        <p>{profile.email}</p>
-      </footer>
-
-      <Dialog open={Boolean(activeProject)} onOpenChange={(open) => !open && setActiveProject(null)}>
-        <DialogContent className="preview-dialog">
-          {activeProject && (
-            <>
-              <DialogHeader>
-                <DialogTitle>{activeProject.title}</DialogTitle>
-                <DialogDescription>{activeProject.summary}</DialogDescription>
-              </DialogHeader>
-
-              <img src={activeProject.cover} alt={activeProject.alt} className="preview-cover" />
-
-              <div className="preview-footer">
-                <span>
-                  {activeProject.category} · {activeProject.year}
-                </span>
-                <Button asChild>
-                  <a href={activeProject.behanceUrl} target="_blank" rel="noreferrer">
-                    Ver no Behance <ExternalLink aria-hidden="true" />
-                  </a>
-                </Button>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
+      <Footer mode={mode} />
     </div>
   );
 }
 
+/* -------------------------------- Header -------------------------------- */
+
+function Header({
+  mode,
+  setMode,
+  onAnyChange,
+}: {
+  mode: ViewMode;
+  setMode: (m: ViewMode) => void;
+  onAnyChange: () => void;
+}) {
+  const select = (m: ViewMode) => {
+    onAnyChange();
+    setMode(m);
+  };
+  return (
+    <header className="ec-header">
+      <a href="/" className="ec-brand">
+        {profile.name}
+      </a>
+      <nav className="ec-nav" aria-label="Modo de visualização">
+        <button type="button" onClick={() => select("list")} data-active={mode === "list"}>
+          List
+        </button>
+        <span aria-hidden="true">/</span>
+        <button type="button" onClick={() => select("grid")} data-active={mode === "grid"}>
+          Grid
+        </button>
+        <span aria-hidden="true">/</span>
+        <button type="button" onClick={() => select("gallery")} data-active={mode === "gallery"}>
+          Gallery
+        </button>
+      </nav>
+      <div className="ec-header-right">
+        <a href={profile.behanceUrl} target="_blank" rel="noreferrer">
+          Studio
+        </a>
+        <span aria-hidden="true">&nbsp;&nbsp;</span>
+        <a href={profile.linkedinUrl} target="_blank" rel="noreferrer">
+          Lab
+        </a>
+      </div>
+    </header>
+  );
+}
+
+/* -------------------------------- Footer -------------------------------- */
+
+function Footer({ mode }: { mode: ViewMode }) {
+  return (
+    <footer className="ec-footer">
+      <span>Creative Studio</span>
+      <span className="ec-footer-center">
+        {mode === "grid" && "All  /  Web  /  Branding"}
+      </span>
+      <a href={`mailto:${profile.email}@gmail.com`}>Email Us</a>
+    </footer>
+  );
+}
+
+/* -------------------------------- List view ----------------------------- */
+
+function ListView({
+  projects,
+  onOpen,
+}: {
+  projects: PortfolioProject[];
+  onOpen: (index: number) => void;
+}) {
+  const [hovered, setHovered] = useState<number | null>(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
+
+  return (
+    <div className="ec-list-wrap" ref={containerRef}>
+      <ul className="ec-list">
+        {projects.map((p, i) => (
+          <li key={p.id}>
+            <button
+              type="button"
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered((h) => (h === i ? null : h))}
+              onClick={() => onOpen(i)}
+              className="ec-list-item"
+            >
+              {p.title.trim()}
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      {hovered !== null && (
+        <div
+          className="ec-floating-thumb"
+          style={{ left: pos.x, top: pos.y }}
+          aria-hidden="true"
+        >
+          <img src={projects[hovered].cover} alt="" />
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* -------------------------------- Grid view ----------------------------- */
+
+function GridView({
+  projects,
+  onOpen,
+}: {
+  projects: PortfolioProject[];
+  onOpen: (index: number) => void;
+}) {
+  return (
+    <section className="ec-grid" aria-label="Projetos em grid">
+      {projects.map((p, i) => (
+        <article key={p.id} className="ec-grid-cell">
+          <button
+            type="button"
+            className="ec-grid-cover"
+            onClick={() => onOpen(i)}
+            aria-label={`Abrir ${p.title.trim()}`}
+          >
+            <img src={p.cover} alt={p.alt} loading="lazy" />
+          </button>
+          <p className="ec-grid-meta">
+            <span className="ec-grid-title">{p.title.trim()}</span>
+            <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+            <span className="ec-grid-cat">{p.category}</span>
+          </p>
+        </article>
+      ))}
+    </section>
+  );
+}
+
+/* ------------------------------- Gallery view --------------------------- */
+
+function GalleryView({
+  projects,
+  index,
+  setIndex,
+  onClose,
+}: {
+  projects: PortfolioProject[];
+  index: number;
+  setIndex: (i: number) => void;
+  onClose: () => void;
+}) {
+  const prev = () => setIndex((index - 1 + projects.length) % projects.length);
+  const next = () => setIndex((index + 1) % projects.length);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index]);
+
+  const current = projects[index];
+
+  return (
+    <section className="ec-gallery" aria-label="Visualização em galeria">
+      <button type="button" className="ec-gallery-add" aria-label="Adicionar (decorativo)">
+        +
+      </button>
+
+      <a
+        href={current.behanceUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="ec-gallery-frame"
+        aria-label={`Ver ${current.title.trim()} no Behance`}
+      >
+        <img src={current.cover} alt={current.alt} />
+      </a>
+
+      <div className="ec-gallery-controls">
+        <button type="button" onClick={prev}>← Prev image</button>
+        <button type="button" onClick={onClose}>Close</button>
+        <button type="button" onClick={next}>Next image →</button>
+      </div>
+    </section>
+  );
+}
