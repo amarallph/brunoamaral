@@ -145,6 +145,7 @@ function ListView({
               onMouseLeave={() => setHovered((h) => (h === i ? null : h))}
               onClick={() => onOpen(i)}
               className="ec-list-item"
+              data-small={p.id === "inimigos-do-pace" ? "true" : undefined}
             >
               {p.title.trim()}
             </button>
