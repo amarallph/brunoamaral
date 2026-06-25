@@ -39,6 +39,7 @@ function Index() {
 
   return (
     <div className="ec-shell">
+      {showPreloader && <Preloader onDone={hidePreloader} />}
       <Header mode={mode} setMode={setMode} onAnyChange={() => setGalleryIndex(null)} />
 
       <main className="ec-main">
