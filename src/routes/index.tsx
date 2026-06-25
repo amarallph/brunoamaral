@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { profile, portfolioProjects, type PortfolioProject } from "@/lib/portfolio-data";
+import { Preloader } from "@/components/Preloader";
 
 type ViewMode = "list" | "grid" | "gallery";
 
