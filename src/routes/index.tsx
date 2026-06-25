@@ -28,11 +28,14 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [mode, setMode] = useState<ViewMode>("list");
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
+  const [showPreloader, setShowPreloader] = useState(true);
 
   const openGallery = (index: number) => {
     setMode("gallery");
     setGalleryIndex(index);
   };
+
+  const hidePreloader = useCallback(() => setShowPreloader(false), []);
 
   return (
     <div className="ec-shell">
