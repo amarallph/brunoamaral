@@ -19,11 +19,11 @@ export function Preloader({ onDone }: Props) {
 
   // Sequence: intro (black) -> flash to white -> done
   useEffect(() => {
-    const t1 = window.setTimeout(() => setPhase("flash"), 3400);
+    const t1 = window.setTimeout(() => setPhase("flash"), 14100);
     const t2 = window.setTimeout(() => {
       setPhase("done");
       onDone();
-    }, 4300);
+    }, 15000);
     return () => {
       window.clearTimeout(t1);
       window.clearTimeout(t2);
