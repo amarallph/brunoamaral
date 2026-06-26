@@ -452,12 +452,12 @@
     color: #fff;
     display: block;
     overflow: hidden;
-    animation: ec-pre-bg 4.3s ease forwards;
+    animation: ec-pre-bg 15s ease forwards;
   }
 
   @keyframes ec-pre-bg {
-    0%, 78% { background: #0a0a0a; color: #fff; }
-    82% { background: #ffffff; color: #111; }
+    0%, 94% { background: #0a0a0a; color: #fff; }
+    96% { background: #ffffff; color: #111; }
     100% { background: #ffffff; color: #111; opacity: 0; visibility: hidden; }
   }
 
