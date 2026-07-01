@@ -116,15 +116,8 @@
     font-family: var(--font-body);
   }
 
-  /* Keep destination page invisible until the overlay is fully opaque.
-     GSAP flips visibility + autoAlpha once it's safe to reveal. */
-  .ec-shell-content {
-    visibility: hidden;
-    opacity: 0;
-  }
-  .ec-shell-content[data-ready="true"] {
-    visibility: visible;
-  }
+  /* .ec-shell-content is visible by default. The intro loader (root-level,
+     runs once per session) manages its own visibility inline while active. */
 
   /* ============================ Header =========================== */
   .ec-header {
