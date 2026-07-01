@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Preloader } from "./Preloader";
+import { hideInitialOverlay } from "@/lib/initial-overlay";
 
 const INTRO_KEY = "bruno_amaral_intro_shown";
 
@@ -14,7 +15,11 @@ export function IntroLoader() {
   useEffect(() => {
     try {
       const seen = sessionStorage.getItem(INTRO_KEY);
-      if (!seen) setShow(true);
+      if (!seen) {
+        setShow(true);
+      } else {
+        hideInitialOverlay();
+      }
     } catch {
       setShow(true);
     }
@@ -25,6 +30,7 @@ export function IntroLoader() {
     try {
       sessionStorage.setItem(INTRO_KEY, "1");
     } catch {}
+    hideInitialOverlay();
     setShow(false);
   };
 

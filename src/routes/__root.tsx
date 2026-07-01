@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { IntroLoader } from "../components/IntroLoader";
 import { RouteErrorOverlay } from "../components/RouteFallbackOverlay";
+import { RootTransitionOverlay } from "../components/RootTransitionOverlay";
 
 function NotFoundComponent() {
   return (
@@ -98,6 +99,26 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <div
+          id="ec-initial-overlay"
+          aria-hidden="true"
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 1000000,
+            display: "grid",
+            placeItems: "center",
+            background: "#000",
+            color: "#fff",
+            fontFamily: "system-ui, -apple-system, sans-serif",
+            fontSize: "12px",
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            transition: "opacity 240ms ease, visibility 240ms ease",
+          }}
+        >
+          Bruno Amaral — Creative Director
+        </div>
         {children}
         <Scripts />
       </body>
@@ -111,6 +132,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <IntroLoader />
+      <RootTransitionOverlay />
       <Outlet />
     </QueryClientProvider>
   );
