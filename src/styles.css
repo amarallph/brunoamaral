@@ -91,12 +91,17 @@
     border-color: var(--color-border);
   }
 
+  html {
+    /* Reserve scrollbar space at all times so intro/transition overlays
+       never cause a horizontal layout shift. */
+    scrollbar-gutter: stable;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
     letter-spacing: 0;
-    scrollbar-gutter: stable;
   }
 }
 
@@ -111,15 +116,8 @@
     font-family: var(--font-body);
   }
 
-  /* Keep destination page invisible until the overlay is fully opaque.
-     GSAP flips visibility + autoAlpha once it's safe to reveal. */
-  .ec-shell-content {
-    visibility: hidden;
-    opacity: 0;
-  }
-  .ec-shell-content[data-ready="true"] {
-    visibility: visible;
-  }
+  /* .ec-shell-content is visible by default. The intro loader (root-level,
+     runs once per session) manages its own visibility inline while active. */
 
   /* ============================ Header =========================== */
   .ec-header {
