@@ -12,14 +12,9 @@ if (!CustomEase.get("editorial")) {
 type Props = { onDone: () => void };
 
 async function waitForPageReady() {
-  // Fonts loaded
   try {
-    if (document.fonts && document.fonts.ready) {
-      await document.fonts.ready;
-    }
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
   } catch {}
-
-  // Images decoded
   const imgs = Array.from(document.querySelectorAll<HTMLImageElement>(".ec-shell-content img"));
   await Promise.all(
     imgs.map((img) => {
@@ -31,8 +26,6 @@ async function waitForPageReady() {
       });
     }),
   );
-
-  // Layout / hydration flush — two RAFs
   await new Promise<void>((res) => requestAnimationFrame(() => requestAnimationFrame(() => res())));
 }
 
@@ -47,27 +40,28 @@ export function Preloader({ onDone }: Props) {
 
   useEffect(() => {
     if (!mounted) return;
-    // Guard against React StrictMode double-invocation and re-renders —
-    // the timeline must run exactly once per page load.
     if (startedRef.current) return;
     startedRef.current = true;
+
     const overlay = overlayRef.current!;
     const text = textRef.current!;
     const reel = reelRef.current!;
 
+    // Lock scroll WITHOUT changing viewport width (scrollbar-gutter: stable on <html> holds the gutter).
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    // Overlay is fully opaque from the very first frame — no white flash
+    // Hide the app shell inline until the reveal is armed — no white flash, no CSS coupling.
+    const app = document.querySelector<HTMLElement>(".ec-shell-content");
+    const prevVis = app?.style.visibility ?? "";
+    const prevOp = app?.style.opacity ?? "";
+    if (app) {
+      app.style.visibility = "hidden";
+      app.style.opacity = "0";
+    }
+
     gsap.set(overlay, { autoAlpha: 1, force3D: true });
-    gsap.set(text, {
-      autoAlpha: 0,
-      scale: 0.975,
-      filter: "blur(10px)",
-      y: 18,
-      force3D: true,
-    });
-    gsap.set(reel, {
+    gsap.set([text, reel], {
       autoAlpha: 0,
       scale: 0.975,
       filter: "blur(10px)",
@@ -75,7 +69,7 @@ export function Preloader({ onDone }: Props) {
       force3D: true,
     });
 
-    // fast image cycle in the reel
+    // reel image cycle
     const imgs = reel.querySelectorAll<HTMLImageElement>("img");
     let idx = 0;
     imgs.forEach((el, i) => (el.style.opacity = i === 0 ? "1" : "0"));
@@ -87,125 +81,112 @@ export function Preloader({ onDone }: Props) {
     }, 110);
 
     let cancelled = false;
+    // Kick off the readiness check in parallel with the intro so the reveal
+    // fires the instant the page is ready — never sits on a static frame.
+    const readyPromise = waitForPageReady();
 
-    const revealPage = async () => {
-      const app = document.querySelector<HTMLElement>(".ec-shell-content");
+    const armAppForReveal = () => {
       if (!app) return;
-
-      // Wait for fonts, images, layout before revealing
-      await waitForPageReady();
-      if (cancelled) return;
-
       gsap.set(app, {
         autoAlpha: 0,
         scale: 1.04,
         filter: "blur(14px)",
         y: 28,
         force3D: true,
-        visibility: "visible",
       });
+      app.style.visibility = "visible";
       app.setAttribute("data-ready", "true");
-
-      gsap.to(app, {
-        autoAlpha: 1,
-        scale: 1,
-        filter: "blur(0px)",
-        y: 0,
-        duration: 1.8,
-        ease: "editorial",
-      });
-
-      const blocks = app.querySelectorAll<HTMLElement>("[data-reveal]");
-      if (blocks.length) {
-        gsap.fromTo(
-          blocks,
-          { autoAlpha: 0, y: 18, scale: 0.975, filter: "blur(10px)" },
-          {
-            autoAlpha: 1,
-            y: 0,
-            scale: 1,
-            filter: "blur(0px)",
-            duration: 1.6,
-            ease: "editorial",
-            stagger: 0.14,
-          },
-        );
-      }
     };
 
-    // ~6.2s cinematic timeline
+    const cleanup = () => {
+      document.body.style.overflow = prevOverflow;
+      if (app) {
+        // Clear inline overrides so subsequent renders behave normally.
+        app.style.visibility = prevVis;
+        app.style.opacity = prevOp;
+        app.style.transform = "";
+        app.style.filter = "";
+      }
+      window.clearInterval(cycle);
+    };
+
+    // ~4.6s continuously overlapping timeline — never a static frame.
     const tl = gsap.timeline({
       onComplete: () => {
-        document.body.style.overflow = prevOverflow;
-        window.clearInterval(cycle);
+        cleanup();
         onDone();
       },
     });
 
-    // 0.00–0.35s — freeze / anticipation (overlay already covers)
-    tl.to({}, { duration: 0.35 })
-      // 0.35–1.25s — intro text emerges
-      .to(text, {
+    // Intro text + reel emerge together
+    tl.to(text, {
+      autoAlpha: 1,
+      scale: 1,
+      filter: "blur(0px)",
+      y: 0,
+      duration: 1.1,
+      ease: "editorial",
+    }, 0.15)
+      .to(reel, {
         autoAlpha: 1,
         scale: 1,
         filter: "blur(0px)",
         y: 0,
+        duration: 1.1,
+        ease: "editorial",
+      }, 0.15)
+      // Intro text drifts out — overlaps the previous phase
+      .to([text, reel], {
+        autoAlpha: 0,
+        scale: 1.015,
+        filter: "blur(8px)",
+        y: -8,
         duration: 0.9,
         ease: "editorial",
-      })
-      .to(
-        reel,
-        {
+      }, 1.55)
+      // Reveal the page underneath, waiting only if it isn't ready yet.
+      .add(async () => {
+        await readyPromise;
+        if (cancelled) return;
+        armAppForReveal();
+        gsap.to(app!, {
           autoAlpha: 1,
           scale: 1,
           filter: "blur(0px)",
           y: 0,
-          duration: 0.9,
+          duration: 1.6,
           ease: "editorial",
-        },
-        "<",
-      )
-      // 1.25–2.15s — hold to breathe
-      .to({}, { duration: 0.9 })
-      // 2.15–2.85s — intro text drifts out
-      .to(text, {
-        autoAlpha: 0,
-        scale: 1.015,
-        filter: "blur(8px)",
-        y: -6,
-        duration: 0.7,
-        ease: "editorial",
-      })
-      .to(
-        reel,
-        {
-          autoAlpha: 0,
-          scale: 1.015,
-          filter: "blur(8px)",
-          y: -6,
-          duration: 0.7,
-          ease: "editorial",
-        },
-        "<",
-      )
-      // 2.85s — begin revealing page underneath the still-opaque overlay
-      .add(revealPage)
-      // 2.85–3.55s — hold black while page settles underneath
-      .to({}, { duration: 0.7 })
-      // 3.55–5.35s — overlay fades away slowly, exposing the revealed page
+        });
+        const blocks = app!.querySelectorAll<HTMLElement>("[data-reveal]");
+        if (blocks.length) {
+          gsap.fromTo(
+            blocks,
+            { autoAlpha: 0, y: 18, scale: 0.975, filter: "blur(10px)" },
+            {
+              autoAlpha: 1,
+              y: 0,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 1.4,
+              ease: "editorial",
+              stagger: 0.1,
+            },
+          );
+        }
+      }, 2.0)
+      // Overlay fades away in parallel with the page reveal — no static black hold.
       .to(overlay, {
         autoAlpha: 0,
-        duration: 1.8,
+        duration: 1.4,
         ease: "editorial",
-      })
-      // 5.35–6.20s — final settle
-      .to({}, { duration: 0.85 });
+      }, 2.35)
+      // Short tail so the timeline resolves after the reveal settles.
+      .to({}, { duration: 0.6 });
 
     return () => {
       cancelled = true;
       tl.kill();
-      window.clearInterval(cycle);
-      document.body.style.overflow = prevOverflow;
+      cleanup();
     };
   }, [mounted, onDone]);
 
