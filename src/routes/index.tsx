@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { profile, portfolioProjects, type PortfolioProject } from "@/lib/portfolio-data";
-import { Preloader } from "@/components/Preloader";
 
 type ViewMode = "list" | "grid" | "gallery";
 
@@ -28,18 +27,14 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [mode, setMode] = useState<ViewMode>("list");
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
-  const [showPreloader, setShowPreloader] = useState(true);
 
   const openGallery = (index: number) => {
     setMode("gallery");
     setGalleryIndex(index);
   };
 
-  const hidePreloader = useCallback(() => setShowPreloader(false), []);
-
   return (
     <div className="ec-shell">
-      {showPreloader && <Preloader onDone={hidePreloader} />}
       <div className="ec-shell-content">
         <div data-reveal>
           <Header mode={mode} setMode={setMode} onAnyChange={() => setGalleryIndex(null)} />
@@ -63,7 +58,6 @@ function Index() {
         </div>
       </div>
     </div>
-
   );
 }
 
