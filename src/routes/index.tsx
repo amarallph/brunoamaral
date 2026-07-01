@@ -40,23 +40,30 @@ function Index() {
   return (
     <div className="ec-shell">
       {showPreloader && <Preloader onDone={hidePreloader} />}
-      <Header mode={mode} setMode={setMode} onAnyChange={() => setGalleryIndex(null)} />
+      <div className="ec-shell-content">
+        <div data-reveal>
+          <Header mode={mode} setMode={setMode} onAnyChange={() => setGalleryIndex(null)} />
+        </div>
 
-      <main className="ec-main">
-        {mode === "list" && <ListView projects={portfolioProjects} onOpen={openGallery} />}
-        {mode === "grid" && <GridView projects={portfolioProjects} onOpen={openGallery} />}
-        {mode === "gallery" && (
-          <GalleryView
-            projects={portfolioProjects}
-            index={galleryIndex ?? 0}
-            setIndex={setGalleryIndex}
-            onClose={() => setMode("list")}
-          />
-        )}
-      </main>
+        <main className="ec-main" data-reveal>
+          {mode === "list" && <ListView projects={portfolioProjects} onOpen={openGallery} />}
+          {mode === "grid" && <GridView projects={portfolioProjects} onOpen={openGallery} />}
+          {mode === "gallery" && (
+            <GalleryView
+              projects={portfolioProjects}
+              index={galleryIndex ?? 0}
+              setIndex={setGalleryIndex}
+              onClose={() => setMode("list")}
+            />
+          )}
+        </main>
 
-      <Footer mode={mode} />
+        <div data-reveal>
+          <Footer mode={mode} />
+        </div>
+      </div>
     </div>
+
   );
 }
 

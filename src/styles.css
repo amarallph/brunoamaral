@@ -443,85 +443,51 @@
     color-scheme: light;
   }
 
-  /* ============================ Preloader ====================== */
-  .ec-preloader {
+  /* ============================ Preloader (GSAP) ================= */
+  .ec-preloader-gsap {
     position: fixed;
     inset: 0;
-    z-index: 100;
-    background: #0a0a0a;
-    color: #fff;
-    display: block;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 999999;
     overflow: hidden;
-    animation: ec-pre-bg 15s ease forwards;
+    color: #fff;
   }
 
-  @keyframes ec-pre-bg {
-    0%, 94% { background: #0a0a0a; color: #fff; }
-    96% { background: #ffffff; color: #111; }
-    100% { background: #ffffff; color: #111; opacity: 0; visibility: hidden; }
-  }
-
-  .ec-preloader-done {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-  }
-
-  .ec-preloader-header,
-  .ec-preloader-footer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 1.25rem 1.5rem;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    opacity: 0;
-    animation: ec-pre-fadein 600ms ease 200ms forwards;
-  }
-
-  .ec-preloader-header { top: 0; }
-  .ec-preloader-footer { bottom: 0; }
-
-  .ec-preloader-center {
+  .ec-preloader-gsap-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: var(--font-body);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-align: center;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 15px;
     white-space: nowrap;
-    opacity: 0;
-    animation: ec-pre-fadein 700ms ease 500ms forwards;
+    will-change: transform, opacity, filter;
   }
 
-  .ec-preloader-thumb {
+  .ec-preloader-gsap-reel {
     position: absolute;
-    right: 1.5rem;
-    bottom: 3rem;
-    width: 96px;
-    height: 96px;
+    right: 2rem;
+    bottom: 2rem;
+    width: 140px;
+    height: 180px;
     overflow: hidden;
-    background: #1a1a1a;
-    opacity: 0;
-    animation: ec-pre-fadein 500ms ease 800ms forwards;
-    box-shadow: 0 12px 30px -10px rgba(0,0,0,0.6);
+    background: #111;
+    will-change: transform, opacity, filter;
   }
 
-  .ec-preloader-thumb img {
+  .ec-preloader-gsap-reel img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-  }
-
-  @keyframes ec-pre-fadein {
-    to { opacity: 1; }
+    opacity: 0;
+    transition: opacity 40ms linear;
   }
 }
 
