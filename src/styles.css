@@ -91,12 +91,17 @@
     border-color: var(--color-border);
   }
 
+  html {
+    /* Reserve scrollbar space at all times so intro/transition overlays
+       never cause a horizontal layout shift. */
+    scrollbar-gutter: stable;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
     letter-spacing: 0;
-    scrollbar-gutter: stable;
   }
 }
 
