@@ -98,14 +98,12 @@ export function Preloader({ onDone }: Props) {
     const cleanup = () => {
       document.body.style.overflow = prevOverflow;
       if (app) {
-        // Clear inline overrides so subsequent renders behave normally.
-        app.style.visibility = prevVis;
-        app.style.opacity = prevOp;
         app.style.transform = "";
         app.style.filter = "";
       }
       window.clearInterval(cycle);
     };
+
 
     // ~4.6s continuously overlapping timeline — never a static frame.
     const tl = gsap.timeline({
