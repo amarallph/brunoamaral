@@ -43,7 +43,10 @@ export function Preloader({ onDone }: Props) {
       const overlay = overlayRef.current;
       const text = textRef.current;
       const reel = reelRef.current;
-      if (!overlay || !text || !reel) return;
+      if (!overlay || !text || !reel) {
+        onDone();
+        return;
+      }
 
       // Lock scroll WITHOUT changing viewport width (scrollbar-gutter: stable on <html> holds the gutter).
       const prevOverflow = document.body.style.overflow;

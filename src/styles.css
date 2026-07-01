@@ -476,6 +476,8 @@
     text-transform: uppercase;
     font-size: 15px;
     white-space: nowrap;
+    opacity: 0;
+    filter: blur(10px);
     will-change: transform, opacity, filter;
   }
 
@@ -487,6 +489,8 @@
     height: 180px;
     overflow: hidden;
     background: #111;
+    opacity: 0;
+    filter: blur(10px);
     will-change: transform, opacity, filter;
   }
 
