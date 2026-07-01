@@ -12,6 +12,7 @@ export function Preloader({ onDone }: Props) {
   const reelRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
   const startedRef = useRef(false);
+  const completedRef = useRef(false);
 
   useEffect(() => setMounted(true), []);
 
@@ -26,6 +27,12 @@ export function Preloader({ onDone }: Props) {
 
     let cancelled = false;
     let disposeTimeline: (() => void) | undefined;
+
+    const finishOnce = () => {
+      if (completedRef.current) return;
+      completedRef.current = true;
+      onDone();
+    };
 
     const runTimeline = async () => {
       const [{ default: gsap }, { CustomEase }] = await Promise.all([
@@ -44,7 +51,7 @@ export function Preloader({ onDone }: Props) {
       const text = textRef.current;
       const reel = reelRef.current;
       if (!overlay || !text || !reel) {
-        onDone();
+        finishOnce();
         return;
       }
 
@@ -107,7 +114,7 @@ export function Preloader({ onDone }: Props) {
       const tl = gsap.timeline({
         onComplete: () => {
           cleanup();
-          onDone();
+          finishOnce();
         },
       });
 
@@ -159,7 +166,6 @@ export function Preloader({ onDone }: Props) {
               autoAlpha: 0,
               duration: 0.8,
               ease: "editorial",
-              onComplete: onDone,
             });
             return;
           }
@@ -211,7 +217,7 @@ export function Preloader({ onDone }: Props) {
 
     runTimeline().catch((error) => {
       console.error(error);
-      onDone();
+      finishOnce();
     });
 
     return () => {
