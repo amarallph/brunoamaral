@@ -41,11 +41,16 @@ export function Preloader({ onDone }: Props) {
   const textRef = useRef<HTMLDivElement>(null);
   const reelRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
+  const startedRef = useRef(false);
 
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (!mounted) return;
+    // Guard against React StrictMode double-invocation and re-renders —
+    // the timeline must run exactly once per page load.
+    if (startedRef.current) return;
+    startedRef.current = true;
     const overlay = overlayRef.current!;
     const text = textRef.current!;
     const reel = reelRef.current!;
