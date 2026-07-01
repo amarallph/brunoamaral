@@ -78,18 +78,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Portfólio | Direção de Arte" },
+      { title: "Bruno Amaral | Direção de Arte" },
       {
         name: "description",
         content: "Portfólio de branding, identidade visual e design digital com projetos autorais.",
       },
-      { property: "og:title", content: "Portfólio | Direção de Arte" },
+      { property: "og:title", content: "Bruno Amaral | Direção de Arte" },
       {
         property: "og:description",
         content: "Portfólio de branding, identidade visual e design digital com projetos autorais.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Bruno Amaral | Direção de Arte" },
+      { name: "description", content: "Showcase your creative projects with a professional portfolio website, mirroring a live example." },
+      { property: "og:description", content: "Showcase your creative projects with a professional portfolio website, mirroring a live example." },
+      { name: "twitter:description", content: "Showcase your creative projects with a professional portfolio website, mirroring a live example." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/7tXtyG39tPP0k0ZmcdJWeFBDvOB3/social-images/social-1782934251001-01.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/7tXtyG39tPP0k0ZmcdJWeFBDvOB3/social-images/social-1782934251001-01.webp" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
