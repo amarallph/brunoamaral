@@ -51,14 +51,10 @@ export function Preloader({ onDone }: Props) {
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    // Hide the app shell inline until the reveal is armed — no white flash, no CSS coupling.
+    // The overlay is rendered via portal at full opacity from frame 1, so the
+    // app shell underneath is already covered — no need to touch its inline
+    // styles (which would cause a React hydration mismatch).
     const app = document.querySelector<HTMLElement>(".ec-shell-content");
-    const prevVis = app?.style.visibility ?? "";
-    const prevOp = app?.style.opacity ?? "";
-    if (app) {
-      app.style.visibility = "hidden";
-      app.style.opacity = "0";
-    }
 
     gsap.set(overlay, { autoAlpha: 1, force3D: true });
     gsap.set([text, reel], {
@@ -68,6 +64,7 @@ export function Preloader({ onDone }: Props) {
       y: 18,
       force3D: true,
     });
+
 
     // reel image cycle
     const imgs = reel.querySelectorAll<HTMLImageElement>("img");
