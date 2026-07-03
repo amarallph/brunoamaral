@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { profile, portfolioProjects, type PortfolioProject } from "@/lib/portfolio-data";
 
@@ -146,16 +146,17 @@ function ListView({
       <ul className="ec-list">
         {projects.map((p, i) => (
           <li key={p.id}>
-            <button
-              type="button"
+            <Link
+              to="/work/$slug"
+              params={{ slug: p.slug }}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered((h) => (h === i ? null : h))}
-              onClick={() => onOpen(i)}
               className="ec-list-item"
               data-small={p.id === "inimigos-do-pace" ? "true" : undefined}
+              data-cursor="open"
             >
               {p.title.trim()}
-            </button>
+            </Link>
           </li>
         ))}
       </ul>
@@ -186,14 +187,15 @@ function GridView({
     <section className="ec-grid" aria-label="Projetos em grid">
       {projects.map((p, i) => (
         <article key={p.id} className="ec-grid-cell">
-          <button
-            type="button"
+          <Link
+            to="/work/$slug"
+            params={{ slug: p.slug }}
             className="ec-grid-cover"
-            onClick={() => onOpen(i)}
             aria-label={`Abrir ${p.title.trim()}`}
+            data-cursor="view"
           >
             <img src={p.cover} alt={p.alt} loading="lazy" />
-          </button>
+          </Link>
           <p className="ec-grid-meta">
             <span className="ec-grid-title">{p.title.trim()}</span>
             <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
