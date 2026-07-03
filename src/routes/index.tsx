@@ -186,14 +186,15 @@ function GridView({
     <section className="ec-grid" aria-label="Projetos em grid">
       {projects.map((p, i) => (
         <article key={p.id} className="ec-grid-cell">
-          <button
-            type="button"
+          <Link
+            to="/work/$slug"
+            params={{ slug: p.slug }}
             className="ec-grid-cover"
-            onClick={() => onOpen(i)}
             aria-label={`Abrir ${p.title.trim()}`}
+            data-cursor="view"
           >
             <img src={p.cover} alt={p.alt} loading="lazy" />
-          </button>
+          </Link>
           <p className="ec-grid-meta">
             <span className="ec-grid-title">{p.title.trim()}</span>
             <span aria-hidden="true">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
