@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { IntroLoader } from "../components/IntroLoader";
 import { RouteErrorOverlay } from "../components/RouteFallbackOverlay";
 import { RootTransitionOverlay } from "../components/RootTransitionOverlay";
+import { SmartCursor } from "../components/SmartCursor";
 
 function NotFoundComponent() {
   return (
