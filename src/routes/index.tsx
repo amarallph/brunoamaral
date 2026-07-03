@@ -146,16 +146,17 @@ function ListView({
       <ul className="ec-list">
         {projects.map((p, i) => (
           <li key={p.id}>
-            <button
-              type="button"
+            <Link
+              to="/work/$slug"
+              params={{ slug: p.slug }}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered((h) => (h === i ? null : h))}
-              onClick={() => onOpen(i)}
               className="ec-list-item"
               data-small={p.id === "inimigos-do-pace" ? "true" : undefined}
+              data-cursor="open"
             >
               {p.title.trim()}
-            </button>
+            </Link>
           </li>
         ))}
       </ul>
