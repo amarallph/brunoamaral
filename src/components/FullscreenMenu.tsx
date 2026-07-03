@@ -12,9 +12,11 @@ const items = [
   { label: "CONTACT", to: "/contact" },
 ] as const;
 
-export function FullscreenMenu() {
+export function FullscreenMenu({ alwaysShowTrigger = false }: { alwaysShowTrigger?: boolean }) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
 
   useEffect(() => setMounted(true), []);
 
