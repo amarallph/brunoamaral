@@ -1,10 +1,10 @@
-import { useEffect, useRef, type ReactNode, type CSSProperties } from "react";
+import { createElement, useEffect, useRef, type ElementType, type ReactNode, type CSSProperties } from "react";
 
 type Props = {
   children: ReactNode;
   delay?: number;
   y?: number;
-  as?: "div" | "section" | "article" | "figure" | "header";
+  as?: ElementType;
   className?: string;
   style?: CSSProperties;
 };
@@ -49,10 +49,5 @@ export function ScrollReveal({
     return () => io.disconnect();
   }, [delay, y]);
 
-  const TagAny = Tag as unknown as (props: Record<string, unknown>) => JSX.Element;
-  return (
-    <TagAny ref={ref} className={className} style={style}>
-      {children}
-    </TagAny>
-  );
+  return createElement(Tag, { ref, className, style }, children);
 }
