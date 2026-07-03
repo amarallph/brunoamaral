@@ -128,6 +128,7 @@ function RootComponent() {
       <IntroLoader />
       <RootTransitionOverlay />
       <SmartCursor />
+      <FullscreenMenu />
       <Outlet />
     </QueryClientProvider>
   );
