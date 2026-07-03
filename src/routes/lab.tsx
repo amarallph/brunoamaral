@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SiteFooter } from "@/components/SiteFooter";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -69,6 +70,7 @@ function LabPage() {
           </ScrollReveal>
         ))}
       </section>
+      <SiteFooter />
     </div>
   );
 }

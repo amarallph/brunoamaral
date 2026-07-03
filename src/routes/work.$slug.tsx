@@ -1,4 +1,5 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
+import { SiteFooter } from "@/components/SiteFooter";
 
 import { getProjectBySlug, portfolioProjects } from "@/lib/portfolio-data";
 import { CaseStudy } from "@/components/case/CaseStudy";
@@ -43,6 +44,7 @@ function WorkSlug() {
   return (
     <div className="ec-page ec-page-case">
       <CaseStudy project={project} />
+      <SiteFooter />
     </div>
   );
 }

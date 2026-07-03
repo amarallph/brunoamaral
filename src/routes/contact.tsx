@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SiteFooter } from "@/components/SiteFooter";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -111,6 +112,7 @@ function ContactPage() {
           </div>
         </ScrollReveal>
       </section>
+      <SiteFooter />
     </div>
   );
 }

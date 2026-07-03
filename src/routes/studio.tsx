@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteFooter } from "@/components/SiteFooter";
 
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { BackButton } from "@/components/case/BackButton";
@@ -127,6 +128,7 @@ function StudioPage() {
           {profile.email}@gmail.com
         </a>
       </ScrollReveal>
+      <SiteFooter />
     </div>
   );
 }
