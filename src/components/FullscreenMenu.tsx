@@ -101,10 +101,13 @@ export function FullscreenMenu({ alwaysShowTrigger = false }: { alwaysShowTrigge
       )
     : null;
 
+  const showTrigger = alwaysShowTrigger || !isHome;
+
   return (
     <>
-      {trigger}
+      {showTrigger ? trigger : null}
       {overlay}
     </>
   );
+
 }
