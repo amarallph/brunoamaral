@@ -346,78 +346,114 @@
   /* ============================ Gallery View ====================== */
   .ec-gallery {
     flex: 1;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    align-items: center;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     position: relative;
+    padding: clamp(1rem, 4vw, 3rem) 0 clamp(2rem, 5vw, 4rem);
   }
 
-  .ec-gallery-add {
-    position: absolute;
+  .ec-gallery-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-top: 1px solid rgba(17, 17, 17, 0.12);
+  }
+
+  .ec-gallery-list[data-hovering="true"] .ec-gallery-item {
+    opacity: 0.35;
+  }
+
+  .ec-gallery-item {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr auto;
+    align-items: baseline;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    padding: clamp(0.9rem, 2.2vw, 1.6rem) clamp(0.75rem, 2vw, 1.5rem);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+    color: #111;
+    text-decoration: none;
+    transition: opacity 500ms cubic-bezier(0.16, 1, 0.30, 1),
+                transform 500ms cubic-bezier(0.16, 1, 0.30, 1),
+                color 300ms ease;
+    will-change: opacity, transform;
+  }
+
+  .ec-gallery-list[data-hovering="true"] .ec-gallery-item[data-active="true"] {
+    opacity: 1;
+    transform: translateX(clamp(6px, 1vw, 14px));
+  }
+
+  .ec-gallery-index {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: #8a8a8a;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ec-gallery-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6.5vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .ec-gallery-cat {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+    white-space: nowrap;
+  }
+
+  .ec-gallery-preview {
+    position: fixed;
     top: 0;
     left: 0;
-    background: transparent;
-    border: 0;
-    font-size: 1.5rem;
-    color: #111;
-    cursor: pointer;
-    padding: 0.25rem 0.5rem;
-  }
-
-  .ec-gallery-frame {
-    display: block;
-    max-width: min(620px, 70vw);
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    align-self: center;
-    justify-self: center;
-    transition: opacity 220ms ease;
-  }
-
-  .ec-gallery-frame img {
-    width: 100%;
-    height: auto;
-    max-height: 70svh;
-    object-fit: contain;
-    display: block;
-  }
-
-  .ec-gallery-controls {
-    position: fixed;
-    inset: auto 1.5rem 1.25rem 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
+    width: clamp(240px, 26vw, 420px);
+    height: clamp(300px, 32vw, 520px);
     pointer-events: none;
+    z-index: 60;
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.94);
+    transition: opacity 380ms cubic-bezier(0.16, 1, 0.30, 1),
+                transform 600ms cubic-bezier(0.16, 1, 0.30, 1);
+    overflow: hidden;
+    will-change: transform, opacity;
   }
 
-  .ec-gallery-controls button {
-    background: transparent;
-    border: 0;
-    color: #111;
-    font: inherit;
-    font-size: 0.82rem;
-    cursor: pointer;
-    pointer-events: auto;
-    padding: 0;
+  .ec-gallery-preview[data-visible="true"] {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1);
   }
 
-  .ec-gallery-controls button:first-child {
-    justify-self: start;
-    color: #b8b8b8;
+  .ec-gallery-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
-  .ec-gallery-controls button:nth-child(2) {
-    justify-self: center;
-    font-weight: 600;
-  }
-
-  .ec-gallery-controls button:last-child {
-    justify-self: end;
-    font-weight: 600;
+  @media (max-width: 720px) {
+    .ec-gallery-item {
+      grid-template-columns: 2.75rem 1fr;
+      grid-template-areas:
+        "index title"
+        ".     cat";
+      gap: 0.4rem 1rem;
+      padding: 1.1rem 0.5rem;
+    }
+    .ec-gallery-index { grid-area: index; }
+    .ec-gallery-title { grid-area: title; font-size: clamp(1.8rem, 10vw, 3.2rem); }
+    .ec-gallery-cat { grid-area: cat; }
+    .ec-gallery-preview {
+      width: 55vw;
+      height: 65vw;
+    }
   }
 
   /* ============================ Responsive ====================== */

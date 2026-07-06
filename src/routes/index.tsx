@@ -220,43 +220,91 @@ function GalleryView({
   setIndex: (i: number) => void;
   onClose: () => void;
 }) {
-  const prev = () => setIndex((index - 1 + projects.length) % projects.length);
-  const next = () => setIndex((index + 1) % projects.length);
+  const [hovered, setHovered] = useState<number | null>(null);
+  const previewRef = useRef<HTMLDivElement>(null);
+  const targetRef = useRef({ x: 0, y: 0 });
+  const currentRef = useRef({ x: 0, y: 0 });
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
-      if (e.key === "Escape") onClose();
+    const onMove = (e: MouseEvent) => {
+      targetRef.current.x = e.clientX;
+      targetRef.current.y = e.clientY;
+      if (rafRef.current == null) {
+        const tick = () => {
+          const t = targetRef.current;
+          const c = currentRef.current;
+          // inertia lerp
+          c.x += (t.x - c.x) * 0.14;
+          c.y += (t.y - c.y) * 0.14;
+          if (previewRef.current) {
+            previewRef.current.style.left = `${c.x}px`;
+            previewRef.current.style.top = `${c.y}px`;
+          }
+          if (Math.abs(t.x - c.x) > 0.1 || Math.abs(t.y - c.y) > 0.1) {
+            rafRef.current = requestAnimationFrame(tick);
+          } else {
+            rafRef.current = null;
+          }
+        };
+        rafRef.current = requestAnimationFrame(tick);
+      }
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index]);
+    window.addEventListener("mousemove", onMove);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
 
-  const current = projects[index];
+  void index;
+  void onClose;
+
+
+
+  const activeProject = hovered !== null ? projects[hovered] : null;
 
   return (
     <section className="ec-gallery" aria-label="Visualização em galeria">
-      <button type="button" className="ec-gallery-add" aria-label="Adicionar (decorativo)">
-        +
-      </button>
-
-      <a
-        href={current.behanceUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="ec-gallery-frame"
-        aria-label={`Ver ${current.title.trim()} no Behance`}
+      <ol
+        className="ec-gallery-list"
+        data-hovering={hovered !== null ? "true" : "false"}
+        onMouseLeave={() => setHovered(null)}
       >
-        <img src={current.cover} alt={current.alt} />
-      </a>
+        {projects.map((p, i) => (
+          <li key={p.id}>
+            <Link
+              to="/work/$slug"
+              params={{ slug: p.slug }}
+              className="ec-gallery-item"
+              data-active={hovered === i ? "true" : "false"}
+              data-cursor="view"
+              onMouseEnter={() => {
+                setHovered(i);
+                setIndex(i);
+              }}
+            >
+              <span className="ec-gallery-index">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="ec-gallery-title">{p.title.trim()}</span>
+              <span className="ec-gallery-cat">{p.category}</span>
+            </Link>
+          </li>
+        ))}
+      </ol>
 
-      <div className="ec-gallery-controls">
-        <button type="button" onClick={prev}>← Prev image</button>
-        <button type="button" onClick={onClose}>Close</button>
-        <button type="button" onClick={next}>Next image →</button>
+      <div
+        ref={previewRef}
+        className="ec-gallery-preview"
+        data-visible={activeProject ? "true" : "false"}
+        aria-hidden="true"
+      >
+        {activeProject ? (
+          <img src={activeProject.cover} alt="" />
+        ) : null}
       </div>
     </section>
   );
 }
+
