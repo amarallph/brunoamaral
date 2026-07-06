@@ -257,11 +257,10 @@ function GalleryView({
     };
   }, []);
 
-  useEffect(() => {
-    void index;
-    void setIndex;
-    void onClose;
-  }, [index, setIndex, onClose]);
+  void index;
+  void onClose;
+
+
 
   const activeProject = hovered !== null ? projects[hovered] : null;
 
