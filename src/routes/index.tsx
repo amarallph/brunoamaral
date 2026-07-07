@@ -284,8 +284,11 @@ function GalleryView({
                 setIndex(i);
               }}
             >
+              <span className="ec-gallery-index">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <span className="ec-gallery-title">{p.title.trim()}</span>
-
+              <span className="ec-gallery-cat">{p.category}</span>
             </Link>
           </li>
         ))}
