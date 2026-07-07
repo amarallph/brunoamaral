@@ -104,8 +104,10 @@ export function Preloader({ onDone }: Props) {
       const cleanup = () => {
         document.body.style.overflow = prevOverflow;
         if (app) {
-          app.style.transform = "";
-          app.style.filter = "";
+          const revealBlocks = Array.from(app.querySelectorAll<HTMLElement>("[data-reveal]"));
+          gsap.set([app, ...revealBlocks], {
+            clearProps: "transform,filter,opacity,visibility,willChange",
+          });
         }
         window.clearInterval(cycle);
       };
