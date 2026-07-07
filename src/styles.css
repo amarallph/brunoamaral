@@ -346,115 +346,75 @@
   /* ============================ Gallery View ====================== */
   .ec-gallery {
     flex: 1;
+    width: 100%;
+    padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(3rem, 6vw, 5rem);
+  }
+
+  .ec-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: clamp(1rem, 2.5vw, 2rem);
+    row-gap: clamp(2.5rem, 5vw, 4.5rem);
+    width: 100%;
+  }
+
+  .ec-gallery-cell {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    position: relative;
-    padding: clamp(1rem, 4vw, 3rem) 0 clamp(2rem, 5vw, 4rem);
-  }
-
-  .ec-gallery-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    border-top: 1px solid rgba(17, 17, 17, 0.12);
-  }
-
-  .ec-gallery-list[data-hovering="true"] .ec-gallery-item {
-    opacity: 0.35;
-  }
-
-  .ec-gallery-item {
-    display: grid;
-    grid-template-columns: 4.5rem 1fr auto;
-    align-items: baseline;
-    gap: clamp(1rem, 3vw, 2.5rem);
-    padding: clamp(0.9rem, 2.2vw, 1.6rem) clamp(0.75rem, 2vw, 1.5rem);
-    border-bottom: 1px solid rgba(17, 17, 17, 0.12);
-    color: #111;
+    align-items: center;
     text-decoration: none;
-    transition: opacity 500ms cubic-bezier(0.16, 1, 0.30, 1),
-                transform 500ms cubic-bezier(0.16, 1, 0.30, 1),
-                color 300ms ease;
-    will-change: opacity, transform;
+    color: #111;
+    transition: opacity 300ms ease;
   }
 
-  .ec-gallery-list[data-hovering="true"] .ec-gallery-item[data-active="true"] {
-    opacity: 1;
-    transform: translateX(clamp(6px, 1vw, 14px));
+  .ec-gallery-cell:hover {
+    opacity: 0.85;
   }
 
-  .ec-gallery-index {
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    color: #8a8a8a;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .ec-gallery-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 6.5vw, 5.5rem);
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    margin: 0;
-  }
-
-  .ec-gallery-cat {
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #6b6b6b;
-    white-space: nowrap;
-  }
-
-  .ec-gallery-preview {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: clamp(240px, 26vw, 420px);
-    height: clamp(300px, 32vw, 520px);
-    pointer-events: none;
-    z-index: 60;
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0) scale(0.94);
-    transition: opacity 380ms cubic-bezier(0.16, 1, 0.30, 1),
-                transform 600ms cubic-bezier(0.16, 1, 0.30, 1);
-    overflow: hidden;
-    will-change: transform, opacity;
-  }
-
-  .ec-gallery-preview[data-visible="true"] {
-    opacity: 1;
-    transform: translate3d(-50%, -50%, 0) scale(1);
-  }
-
-  .ec-gallery-preview img {
+  .ec-gallery-thumb {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: transparent;
   }
 
+  .ec-gallery-thumb img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 600ms cubic-bezier(0.16, 1, 0.30, 1);
+  }
+
+  .ec-gallery-cell:hover .ec-gallery-thumb img {
+    transform: scale(1.03);
+  }
+
+  .ec-gallery-num {
+    margin-top: clamp(0.75rem, 1.2vw, 1.1rem);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    color: #111;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+  }
+
+  @media (max-width: 1100px) {
+    .ec-gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
   @media (max-width: 720px) {
-    .ec-gallery-item {
-      grid-template-columns: 2.75rem 1fr;
-      grid-template-areas:
-        "index title"
-        ".     cat";
-      gap: 0.4rem 1rem;
-      padding: 1.1rem 0.5rem;
-    }
-    .ec-gallery-index { grid-area: index; }
-    .ec-gallery-title { grid-area: title; font-size: clamp(1.8rem, 10vw, 3.2rem); }
-    .ec-gallery-cat { grid-area: cat; }
-    .ec-gallery-preview {
-      width: 55vw;
-      height: 65vw;
+    .ec-gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 2.5rem;
     }
   }
+
 
   /* ============================ Responsive ====================== */
   @media (max-width: 900px) {
