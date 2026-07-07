@@ -109,6 +109,7 @@ function RootShell({ children }: { children: ReactNode }) {
             inset: 0,
             zIndex: 1000000,
             background: "#000",
+            pointerEvents: "none",
             transition: "opacity 240ms ease, visibility 240ms ease",
           }}
         />

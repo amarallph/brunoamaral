@@ -211,100 +211,34 @@ function GridView({
 
 function GalleryView({
   projects,
-  index,
   setIndex,
-  onClose,
 }: {
   projects: PortfolioProject[];
   index: number;
   setIndex: (i: number) => void;
   onClose: () => void;
 }) {
-  const [hovered, setHovered] = useState<number | null>(null);
-  const previewRef = useRef<HTMLDivElement>(null);
-  const targetRef = useRef({ x: 0, y: 0 });
-  const currentRef = useRef({ x: 0, y: 0 });
-  const rafRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      targetRef.current.x = e.clientX;
-      targetRef.current.y = e.clientY;
-      if (rafRef.current == null) {
-        const tick = () => {
-          const t = targetRef.current;
-          const c = currentRef.current;
-          // inertia lerp
-          c.x += (t.x - c.x) * 0.14;
-          c.y += (t.y - c.y) * 0.14;
-          if (previewRef.current) {
-            previewRef.current.style.left = `${c.x}px`;
-            previewRef.current.style.top = `${c.y}px`;
-          }
-          if (Math.abs(t.x - c.x) > 0.1 || Math.abs(t.y - c.y) > 0.1) {
-            rafRef.current = requestAnimationFrame(tick);
-          } else {
-            rafRef.current = null;
-          }
-        };
-        rafRef.current = requestAnimationFrame(tick);
-      }
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
-
-  void index;
-  void onClose;
-
-
-
-  const activeProject = hovered !== null ? projects[hovered] : null;
-
   return (
     <section className="ec-gallery" aria-label="Visualização em galeria">
-      <ol
-        className="ec-gallery-list"
-        data-hovering={hovered !== null ? "true" : "false"}
-        onMouseLeave={() => setHovered(null)}
-      >
+      <div className="ec-gallery-grid">
         {projects.map((p, i) => (
-          <li key={p.id}>
-            <Link
-              to="/work/$slug"
-              params={{ slug: p.slug }}
-              className="ec-gallery-item"
-              data-active={hovered === i ? "true" : "false"}
-              data-cursor="view"
-              onMouseEnter={() => {
-                setHovered(i);
-                setIndex(i);
-              }}
-            >
-              <span className="ec-gallery-index">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span className="ec-gallery-title">{p.title.trim()}</span>
-              <span className="ec-gallery-cat">{p.category}</span>
-            </Link>
-          </li>
+          <Link
+            key={p.id}
+            to="/work/$slug"
+            params={{ slug: p.slug }}
+            className="ec-gallery-cell"
+            data-cursor="view"
+            onMouseEnter={() => setIndex(i)}
+          >
+            <div className="ec-gallery-thumb">
+              <img src={p.cover} alt={p.alt} loading="lazy" />
+            </div>
+            <span className="ec-gallery-num">{String(i + 1).padStart(3, "0")}</span>
+          </Link>
         ))}
-      </ol>
-
-      <div
-        ref={previewRef}
-        className="ec-gallery-preview"
-        data-visible={activeProject ? "true" : "false"}
-        aria-hidden="true"
-      >
-        {activeProject ? (
-          <img src={activeProject.cover} alt="" />
-        ) : null}
       </div>
     </section>
   );
 }
+
 
