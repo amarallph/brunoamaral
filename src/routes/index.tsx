@@ -84,15 +84,15 @@ function Header({
       </a>
       <nav className="ec-nav" aria-label="Modo de visualização">
         <button type="button" onClick={() => select("list")} data-active={mode === "list"}>
-          List
+          <strong>List</strong>
         </button>
         <span aria-hidden="true">/</span>
         <button type="button" onClick={() => select("grid")} data-active={mode === "grid"}>
-          Grid
+          <strong>Grid</strong>
         </button>
         <span aria-hidden="true">/</span>
         <button type="button" onClick={() => select("gallery")} data-active={mode === "gallery"}>
-          Gallery
+          <strong>Gallery</strong>
         </button>
       </nav>
       <div className="ec-header-right">
