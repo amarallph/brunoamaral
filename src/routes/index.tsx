@@ -84,24 +84,24 @@ function Header({
       </a>
       <nav className="ec-nav" aria-label="Modo de visualização">
         <button type="button" onClick={() => select("list")} data-active={mode === "list"}>
-          List
+          <strong>List</strong>
         </button>
         <span aria-hidden="true">/</span>
         <button type="button" onClick={() => select("grid")} data-active={mode === "grid"}>
-          Grid
+          <strong>Grid</strong>
         </button>
         <span aria-hidden="true">/</span>
         <button type="button" onClick={() => select("gallery")} data-active={mode === "gallery"}>
-          Gallery
+          <strong>Gallery</strong>
         </button>
       </nav>
       <div className="ec-header-right">
         <a href={profile.behanceUrl} target="_blank" rel="noreferrer">
-          Studio
+          <strong>Studio</strong>
         </a>
         <span aria-hidden="true">&nbsp;&nbsp;</span>
         <a href={profile.linkedinUrl} target="_blank" rel="noreferrer">
-          Lab
+          <strong>Lab</strong>
         </a>
       </div>
     </header>
@@ -113,11 +113,11 @@ function Header({
 function Footer({ mode }: { mode: ViewMode }) {
   return (
     <footer className="ec-footer">
-      <span>Creative Studio</span>
+      <span><strong>Creative Studio</strong></span>
       <span className="ec-footer-center">
         {mode === "grid" && "All  /  Web  /  Branding"}
       </span>
-      <a href={`mailto:${profile.email}@gmail.com`}>Email Us</a>
+      <a href={`mailto:${profile.email}@gmail.com`}><strong>Email Us</strong></a>
     </footer>
   );
 }
