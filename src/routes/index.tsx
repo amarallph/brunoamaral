@@ -113,11 +113,11 @@ function Header({
 function Footer({ mode }: { mode: ViewMode }) {
   return (
     <footer className="ec-footer">
-      <span>Creative Studio</span>
+      <span><strong>Creative Studio</strong></span>
       <span className="ec-footer-center">
         {mode === "grid" && "All  /  Web  /  Branding"}
       </span>
-      <a href={`mailto:${profile.email}@gmail.com`}>Email Us</a>
+      <a href={`mailto:${profile.email}@gmail.com`}><strong>Email Us</strong></a>
     </footer>
   );
 }
