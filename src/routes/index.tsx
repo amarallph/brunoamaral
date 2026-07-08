@@ -97,11 +97,11 @@ function Header({
       </nav>
       <div className="ec-header-right">
         <a href={profile.behanceUrl} target="_blank" rel="noreferrer">
-          Studio
+          <strong>Studio</strong>
         </a>
         <span aria-hidden="true">&nbsp;&nbsp;</span>
         <a href={profile.linkedinUrl} target="_blank" rel="noreferrer">
-          Lab
+          <strong>Lab</strong>
         </a>
       </div>
     </header>
