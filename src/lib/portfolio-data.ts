@@ -1,12 +1,12 @@
-import agronomyAsset from "@/assets/agronomy.jpg.asset.json";
-import brazaAsset from "@/assets/braza-io.png.asset.json";
-import coralBethelAsset from "@/assets/coral-bethel.png.asset.json";
-import frexcoAsset from "@/assets/frexco.png.asset.json";
-import inimigosDoPaceAsset from "@/assets/inimigos-do-pace.png.asset.json";
-import joanaLiliAsset from "@/assets/joana-lili.png.asset.json";
-import neurartAsset from "@/assets/neurart-io.png.asset.json";
-import rolimAsset from "@/assets/rolim-advogados.jpg.asset.json";
-import sakkarAsset from "@/assets/sakkar.jpg.asset.json";
+const agronomyAsset = { url: "/images/agronomy.jpg" };
+const brazaAsset = { url: "/images/braza-io.png" };
+const coralBethelAsset = { url: "/images/coral-bethel.png" };
+const frexcoAsset = { url: "/images/frexco.png" };
+const inimigosDoPaceAsset = { url: "/images/inimigos-do-pace.png" };
+const joanaLiliAsset = { url: "/images/joana-lili.png" };
+const neurartAsset = { url: "/images/neurart-io.png" };
+const rolimAsset = { url: "/images/rolim-advogados.jpg" };
+const sakkarAsset = { url: "/images/sakkar.jpg" };
 
 export type GalleryBlock =
   | { type: "full"; src: string; caption?: string }
