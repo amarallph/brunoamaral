@@ -191,7 +191,10 @@ export const portfolioProjects: PortfolioProject[] = [
     gallery: [
       { type: "full", src: sakkarAsset.url },
       { type: "text", body: "Sakkar nasce de um mergulho na memória cultural árabe, traduzida em desenho contemporâneo através de uma paleta terrosa e um símbolo autoral." },
-      { type: "horizontal", src: sakkarAsset.url },
+      { type: "horizontal", src: "/images/sakkar-02.jpg", caption: "Sistema de embalagens e ponto de venda" },
+      { type: "full", src: "/images/sakkar-03.jpg", caption: "Linha de café — variações de pack" },
+      { type: "horizontal", src: "/images/sakkar-04.jpg", caption: "Cartão fidelidade — frente e verso" },
+      { type: "full", src: "/images/sakkar-05.jpg", caption: "Padrão gráfico autoral" },
     ],
   },
   {
