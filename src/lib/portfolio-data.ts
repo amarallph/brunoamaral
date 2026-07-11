@@ -189,7 +189,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ...defaults("Sakkar", "Identidade Visual"),
     services: ["Brand Identity", "Logo Design", "Packaging", "Naming"],
     gallery: [
-      { type: "full", src: sakkarAsset.url },
+      { type: "full", src: "/images/sakkar-06.png" },
       { type: "text", body: "Sakkar nasce de um mergulho na memória cultural árabe, traduzida em desenho contemporâneo através de uma paleta terrosa e um símbolo autoral." },
       { type: "horizontal", src: "/images/sakkar-02.jpg", caption: "Sistema de embalagens e ponto de venda" },
       { type: "full", src: "/images/sakkar-03.jpg", caption: "Linha de café — variações de pack" },
