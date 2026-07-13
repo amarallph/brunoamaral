@@ -13,7 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { IntroLoader } from "../components/IntroLoader";
 import { RouteErrorOverlay } from "../components/RouteFallbackOverlay";
-import { RootTransitionOverlay } from "../components/RootTransitionOverlay";
+
 import { SmartCursor } from "../components/SmartCursor";
 import { FullscreenMenu } from "../components/FullscreenMenu";
 
