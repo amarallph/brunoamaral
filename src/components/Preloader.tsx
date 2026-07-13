@@ -112,7 +112,7 @@ export function Preloader({ onDone }: Props) {
         window.clearInterval(cycle);
       };
 
-      // ~4.6s continuously overlapping timeline — never a static frame.
+      // ~8s continuously overlapping timeline — never a static frame.
       const tl = gsap.timeline({
         onComplete: () => {
           cleanup();
