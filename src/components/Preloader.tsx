@@ -197,7 +197,7 @@ export function Preloader({ onDone }: Props) {
               },
             );
           }
-        }, 2.0)
+        }, 5.5)
         // Overlay fades away in parallel with the page reveal — no static black hold.
         .to(
           overlay,
@@ -206,7 +206,7 @@ export function Preloader({ onDone }: Props) {
             duration: 1.4,
             ease: "editorial",
           },
-          2.35,
+          6.0,
         )
         // Short tail so the timeline resolves after the reveal settles.
         .to({}, { duration: 0.6 });
