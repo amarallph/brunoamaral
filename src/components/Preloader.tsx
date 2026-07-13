@@ -112,7 +112,7 @@ export function Preloader({ onDone }: Props) {
         window.clearInterval(cycle);
       };
 
-      // ~4.6s continuously overlapping timeline — never a static frame.
+      // ~8s continuously overlapping timeline — never a static frame.
       const tl = gsap.timeline({
         onComplete: () => {
           cleanup();
@@ -131,7 +131,7 @@ export function Preloader({ onDone }: Props) {
           duration: 1.1,
           ease: "editorial",
         },
-        0.15,
+        0.3,
       )
         .to(
           reel,
@@ -143,7 +143,7 @@ export function Preloader({ onDone }: Props) {
             duration: 1.1,
             ease: "editorial",
           },
-          0.15,
+          0.3,
         )
         // Intro text drifts out — overlaps the previous phase
         .to(
@@ -156,7 +156,7 @@ export function Preloader({ onDone }: Props) {
             duration: 0.9,
             ease: "editorial",
           },
-          1.55,
+          3.5,
         )
         // Reveal the page underneath, waiting only if it isn't ready yet.
         .add(async () => {
@@ -197,7 +197,7 @@ export function Preloader({ onDone }: Props) {
               },
             );
           }
-        }, 2.0)
+        }, 5.5)
         // Overlay fades away in parallel with the page reveal — no static black hold.
         .to(
           overlay,
@@ -206,7 +206,7 @@ export function Preloader({ onDone }: Props) {
             duration: 1.4,
             ease: "editorial",
           },
-          2.35,
+          6.0,
         )
         // Short tail so the timeline resolves after the reveal settles.
         .to({}, { duration: 0.6 });
@@ -238,7 +238,7 @@ export function Preloader({ onDone }: Props) {
       style={{ willChange: "transform, opacity, filter", opacity: 1 }}
     >
       <div ref={textRef} className="ec-preloader-gsap-text">
-        bruno amaral — creative director
+        Bruno Amaral - Creative Studio
       </div>
       <div ref={reelRef} className="ec-preloader-gsap-reel">
         {portfolioProjects.map((p) => (
