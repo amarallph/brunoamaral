@@ -131,7 +131,7 @@ export function Preloader({ onDone }: Props) {
           duration: 1.1,
           ease: "editorial",
         },
-        0.15,
+        0.3,
       )
         .to(
           reel,
@@ -143,7 +143,7 @@ export function Preloader({ onDone }: Props) {
             duration: 1.1,
             ease: "editorial",
           },
-          0.15,
+          0.3,
         )
         // Intro text drifts out — overlaps the previous phase
         .to(
@@ -156,7 +156,7 @@ export function Preloader({ onDone }: Props) {
             duration: 0.9,
             ease: "editorial",
           },
-          1.55,
+          3.5,
         )
         // Reveal the page underneath, waiting only if it isn't ready yet.
         .add(async () => {
