@@ -127,7 +127,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <IntroLoader />
-      <RootTransitionOverlay />
       <SmartCursor />
       <FullscreenMenu />
       <Outlet />
