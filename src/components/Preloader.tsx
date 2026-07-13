@@ -238,7 +238,7 @@ export function Preloader({ onDone }: Props) {
       style={{ willChange: "transform, opacity, filter", opacity: 1 }}
     >
       <div ref={textRef} className="ec-preloader-gsap-text">
-        bruno amaral — creative director
+        Bruno Amaral - Creative Studio
       </div>
       <div ref={reelRef} className="ec-preloader-gsap-reel">
         {portfolioProjects.map((p) => (
