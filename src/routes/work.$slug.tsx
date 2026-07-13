@@ -32,7 +32,6 @@ export const Route = createFileRoute("/work/$slug")({
     };
   },
   component: WorkSlug,
-  pendingComponent: () => <RouteFallbackOverlay description="Abrindo projeto" />,
   errorComponent: RouteErrorOverlay,
   notFoundComponent: () => (
     <RouteFallbackOverlay title="Projeto não encontrado" description="Volte para a home." />
