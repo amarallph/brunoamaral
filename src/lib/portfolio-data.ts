@@ -101,7 +101,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ...defaults("Inimigos do Pace × New Balance", "Campanha"),
     services: ["Creative Direction", "Campaign", "Visual Identity", "Photography Direction"],
     gallery: [
-      { type: "full", src: inimigosDoPaceAsset.url, caption: "Campanha Inimigos do Pace × New Balance" },
+      { type: "full", src: inimigosDoPaceOficialAsset.url, caption: "Campanha Inimigos do Pace × New Balance" },
       { type: "text", body: "A colaboração entre Inimigos do Pace e New Balance materializa uma linguagem que pertence à rua, ao ritmo e ao coletivo." },
       { type: "horizontal", src: inimigosDoPaceAsset.url },
     ],
