@@ -1,4 +1,5 @@
 import inimigosDoPaceOficialAsset from "@/assets/inimigos-do-pace-oficial.png.asset.json";
+import inimigosDoPaceTshirtAsset from "@/assets/inimigos-do-pace-tshirt.png.asset.json";
 
 const agronomyAsset = { url: "/images/agronomy.jpg" };
 const brazaAsset = { url: "/images/braza-io.png" };
@@ -103,7 +104,7 @@ export const portfolioProjects: PortfolioProject[] = [
     gallery: [
       { type: "full", src: inimigosDoPaceOficialAsset.url, caption: "Campanha Inimigos do Pace × New Balance" },
       { type: "text", body: "A colaboração entre Inimigos do Pace e New Balance materializa uma linguagem que pertence à rua, ao ritmo e ao coletivo." },
-      { type: "horizontal", src: inimigosDoPaceAsset.url },
+      { type: "horizontal", src: inimigosDoPaceTshirtAsset.url },
     ],
   },
   {
