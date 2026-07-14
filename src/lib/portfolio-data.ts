@@ -1,4 +1,5 @@
 import inimigosDoPaceOficialAsset from "@/assets/inimigos-do-pace-oficial.png.asset.json";
+import inimigosDoPaceTshirtAsset from "@/assets/inimigos-do-pace-tshirt.png.asset.json";
 
 const agronomyAsset = { url: "/images/agronomy.jpg" };
 const brazaAsset = { url: "/images/braza-io.png" };
