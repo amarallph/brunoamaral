@@ -112,7 +112,7 @@ export function Preloader({ onDone }: Props) {
         window.clearInterval(cycle);
       };
 
-      // ~8s continuously overlapping timeline — never a static frame.
+      // ~5s continuously overlapping timeline — never a static frame.
       const tl = gsap.timeline({
         onComplete: () => {
           cleanup();
@@ -128,10 +128,10 @@ export function Preloader({ onDone }: Props) {
           scale: 1,
           filter: "blur(0px)",
           y: 0,
-          duration: 1.1,
+          duration: 0.7,
           ease: "editorial",
         },
-        0.3,
+        0.2,
       )
         .to(
           reel,
@@ -140,10 +140,10 @@ export function Preloader({ onDone }: Props) {
             scale: 1,
             filter: "blur(0px)",
             y: 0,
-            duration: 1.1,
+            duration: 0.7,
             ease: "editorial",
           },
-          0.3,
+          0.2,
         )
         // Intro text drifts out — overlaps the previous phase
         .to(
@@ -153,10 +153,10 @@ export function Preloader({ onDone }: Props) {
             scale: 1.015,
             filter: "blur(8px)",
             y: -8,
-            duration: 0.9,
+            duration: 0.55,
             ease: "editorial",
           },
-          3.5,
+          2.2,
         )
         // Reveal the page underneath, waiting only if it isn't ready yet.
         .add(async () => {
@@ -166,7 +166,7 @@ export function Preloader({ onDone }: Props) {
           if (!app) {
             gsap.to(overlay, {
               autoAlpha: 0,
-              duration: 0.8,
+              duration: 0.5,
               ease: "editorial",
             });
             return;
@@ -178,7 +178,7 @@ export function Preloader({ onDone }: Props) {
             scale: 1,
             filter: "blur(0px)",
             y: 0,
-            duration: 1.6,
+            duration: 1.0,
             ease: "editorial",
           });
           const blocks = app.querySelectorAll<HTMLElement>("[data-reveal]");
@@ -191,25 +191,25 @@ export function Preloader({ onDone }: Props) {
                 y: 0,
                 scale: 1,
                 filter: "blur(0px)",
-                duration: 1.4,
+                duration: 0.9,
                 ease: "editorial",
-                stagger: 0.1,
+                stagger: 0.06,
               },
             );
           }
-        }, 5.5)
+        }, 3.45)
         // Overlay fades away in parallel with the page reveal — no static black hold.
         .to(
           overlay,
           {
             autoAlpha: 0,
-            duration: 1.4,
+            duration: 0.9,
             ease: "editorial",
           },
-          6.0,
+          3.75,
         )
         // Short tail so the timeline resolves after the reveal settles.
-        .to({}, { duration: 0.6 });
+        .to({}, { duration: 0.4 });
 
       disposeTimeline = () => {
         tl.kill();
