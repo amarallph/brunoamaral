@@ -1,9 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { SiteFooter } from "@/components/SiteFooter";
-
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { BackButton } from "@/components/case/BackButton";
-import { profile } from "@/lib/portfolio-data";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { RouteErrorOverlay } from "@/components/RouteFallbackOverlay";
 
 export const Route = createFileRoute("/studio")({
@@ -12,12 +7,14 @@ export const Route = createFileRoute("/studio")({
       { title: "Studio — Bruno Amaral" },
       {
         name: "description",
-        content: "O estúdio de Bruno Amaral: manifesto, metodologia, serviços e clientes em direção criativa e design.",
+        content:
+          "Bruno Amaral — designer com foco em branding, direção de arte, fotografia e UX/UI. Baseado no Brasil e disponível para projetos globais.",
       },
       { property: "og:title", content: "Studio — Bruno Amaral" },
       {
         property: "og:description",
-        content: "Direção criativa, identidade visual e design digital com abordagem editorial.",
+        content:
+          "Designer com foco em branding, direção de arte, fotografia e UX/UI. Baseado no Brasil e disponível para projetos globais.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -26,109 +23,94 @@ export const Route = createFileRoute("/studio")({
   errorComponent: RouteErrorOverlay,
 });
 
-const services = [
-  "Brand Identity",
-  "Creative Direction",
-  "Visual Identity",
-  "Brand Strategy",
-  "Art Direction",
-  "Naming",
-  "Packaging",
-  "Motion",
-  "UI Design",
-  "UX Design",
-  "Web Design",
-];
-
-const clients = [
-  "New Balance",
-  "Braza.io",
-  "Coral Bethel",
-  "Neurart.io",
-  "Joana e Lili",
-  "Sakkar",
-  "Frexco",
-  "Rolim Advogados",
-];
-
-const method = [
-  { step: "01", title: "Escuta", body: "Entender o território antes de propor qualquer forma." },
-  { step: "02", title: "Estratégia", body: "Traduzir o posicionamento em critérios visuais claros." },
-  { step: "03", title: "Concepção", body: "Explorar territórios criativos com liberdade e método." },
-  { step: "04", title: "Sistema", body: "Construir um repertório aplicável, coerente e escalável." },
-  { step: "05", title: "Entrega", body: "Refinar, produzir e ativar em todos os pontos de contato." },
-];
-
 function StudioPage() {
   return (
-    <div className="ec-page ec-page-studio">
-      <div className="ec-case-topbar">
-        <BackButton label="Back to Home" />
-        <span className="ec-case-index">Studio</span>
-      </div>
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
+      {/* Top bar */}
+      <header className="flex items-center justify-between px-6 md:px-10 py-6 text-sm">
+        <Link to="/" className="hover:underline">
+          Bruno Amaral
+        </Link>
+        <nav className="flex items-center gap-6">
+          <Link to="/studio" className="hover:underline">
+            Studio
+          </Link>
+          <Link to="/lab" className="hover:underline">
+            Lab
+          </Link>
+        </nav>
+      </header>
 
-      <ScrollReveal as="header" className="ec-studio-hero">
-        <p className="ec-case-eyebrow">Studio</p>
-        <h1 className="ec-studio-title">
-          Design editorial <br /> para marcas <br /> contemporâneas.
+      {/* Main content */}
+      <main className="flex-1 flex flex-col items-center px-6 md:px-10 pt-8 pb-20">
+        <h1 className="font-display text-[16vw] md:text-[12vw] leading-[0.9] tracking-tight text-center">
+          STUDIO
         </h1>
-      </ScrollReveal>
 
-      <section className="ec-studio-block">
-        <ScrollReveal>
-          <h2 className="ec-case-h2">Manifesto</h2>
-        </ScrollReveal>
-        <ScrollReveal delay={80}>
-          <p className="ec-studio-lede">
-            Acreditamos em marcas construídas com rigor tipográfico, respiração e uma
-            narrativa própria. Cada projeto é uma investigação — não uma fórmula.
+        <p className="font-display uppercase text-center max-w-6xl mt-12 md:mt-16 text-[6vw] md:text-[3.2vw] leading-[1.05] tracking-tight">
+          Sou Bruno Amaral, designer com foco em branding, direção de arte,
+          fotografia e UX/UI. Combino visão estratégica, sensibilidade estética
+          e precisão na execução para construir marcas, produtos digitais e
+          experiências visuais com identidade própria. Meu trabalho é guiado
+          pela simplicidade, consistência e atenção aos detalhes, transformando
+          conceitos em soluções que permanecem relevantes. Baseado no Brasil e
+          disponível para projetos globais.
+        </p>
+
+        <div className="mt-24 md:mt-32 flex flex-col items-center">
+          <span className="text-sm mb-6">Capabilities</span>
+          <p className="font-display uppercase text-center text-[5vw] md:text-[2.4vw] leading-[1.1] tracking-tight">
+            Art Direction, Brand Identity,
+            <br />
+            Website Design, Website Development
           </p>
-        </ScrollReveal>
-      </section>
+        </div>
 
-      <section className="ec-studio-block">
-        <ScrollReveal>
-          <h2 className="ec-case-h2">Metodologia</h2>
-        </ScrollReveal>
-        <ol className="ec-case-process-list">
-          {method.map((m, i) => (
-            <ScrollReveal as="li" key={m.step} delay={i * 40}>
-              <span className="ec-case-process-index">{m.step}</span>
-              <div>
-                <h3>{m.title}</h3>
-                <p>{m.body}</p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </ol>
-      </section>
-
-      <section className="ec-studio-block ec-studio-two-col">
-        <ScrollReveal>
-          <h2 className="ec-case-h2">Serviços</h2>
-          <ul className="ec-studio-list">
-            {services.map((s) => (
-              <li key={s}>{s}</li>
-            ))}
+        <div className="mt-24 md:mt-32 flex flex-col items-center">
+          <span className="text-sm mb-6">Get in touch</span>
+          <ul className="font-display uppercase text-center text-[7vw] md:text-[3.6vw] leading-[1.15] tracking-tight space-y-1">
+            <li>
+              <a
+                href="mailto:brunnoamaral1@hotmail.com"
+                className="underline underline-offset-[6px] decoration-[3px] hover:opacity-70"
+              >
+                Let's Talk
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.behance.net/brunoamaral24"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-[6px] decoration-[3px] hover:opacity-70"
+              >
+                Behance
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/bruno-amaral-a0b895174"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-[6px] decoration-[3px] hover:opacity-70"
+              >
+                LinkedIn
+              </a>
+            </li>
           </ul>
-        </ScrollReveal>
-        <ScrollReveal delay={80}>
-          <h2 className="ec-case-h2">Clientes</h2>
-          <ul className="ec-studio-list">
-            {clients.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-        </ScrollReveal>
-      </section>
+        </div>
+      </main>
 
-      <ScrollReveal as="section" className="ec-studio-cta">
-        <h2 className="ec-studio-cta-title">Vamos construir algo memorável.</h2>
-        <a href={`mailto:${profile.email}@gmail.com`} data-cursor="open">
-          {profile.email}@gmail.com
+      {/* Footer */}
+      <footer className="flex items-center justify-between px-6 md:px-10 py-6 text-sm">
+        <span>Creative Studio</span>
+        <a
+          href="mailto:brunnoamaral1@hotmail.com"
+          className="hover:underline"
+        >
+          Email Us
         </a>
-      </ScrollReveal>
-      <SiteFooter />
+      </footer>
     </div>
   );
 }
