@@ -58,7 +58,7 @@ function StudioPage() {
         </p>
 
         <div className="mt-24 md:mt-32 flex flex-col items-center">
-          <span className="text-sm mb-6">Capabilities</span>
+          <span className="text-sm mb-6 font-bold">Capabilities</span>
           <p className="font-display uppercase text-center text-[5vw] md:text-[2.4vw] leading-[1.1] tracking-tight">
             Art Direction, Brand Identity,
             <br />
@@ -67,7 +67,7 @@ function StudioPage() {
         </div>
 
         <div className="mt-24 md:mt-32 flex flex-col items-center">
-          <span className="text-sm mb-6">Get in touch</span>
+          <span className="text-sm mb-6 font-bold">Get in touch</span>
           <ul className="font-display uppercase text-center text-[7vw] md:text-[3.6vw] leading-[1.15] tracking-tight space-y-1">
             <li>
               <a
