@@ -96,13 +96,13 @@ function Header({
         </button>
       </nav>
       <div className="ec-header-right">
-        <a href={profile.behanceUrl} target="_blank" rel="noreferrer">
+        <Link to="/studio">
           <strong>Studio</strong>
-        </a>
+        </Link>
         <span aria-hidden="true">&nbsp;&nbsp;</span>
-        <a href={profile.linkedinUrl} target="_blank" rel="noreferrer">
+        <Link to="/lab">
           <strong>Lab</strong>
-        </a>
+        </Link>
       </div>
     </header>
   );
