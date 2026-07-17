@@ -84,7 +84,7 @@ export function FullscreenMenu({ alwaysShowTrigger = false }: { alwaysShowTrigge
           <div className="ec-menu-footer">
             <div>
               <span className="ec-menu-label">Contact</span>
-              <a href={`mailto:${profile.email}@gmail.com`}>{profile.email}@gmail.com</a>
+              <a href={`mailto:${profile.email}`}>{profile.email}</a>
             </div>
             <div>
               <span className="ec-menu-label">Elsewhere</span>
