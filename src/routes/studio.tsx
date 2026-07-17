@@ -48,13 +48,10 @@ function StudioPage() {
         </h1>
 
         <p className="font-display font-black uppercase text-center max-w-[1400px] mt-10 md:mt-14 text-[7vw] md:text-[4.2vw] leading-[1.02] tracking-[-0.02em]">
-          Sou Bruno Amaral, designer com foco em branding, direção de arte,
-          fotografia e UX/UI. Combino visão estratégica, sensibilidade estética
-          e precisão na execução para construir marcas, produtos digitais e
-          experiências visuais com identidade própria. Meu trabalho é guiado
-          pela simplicidade, consistência e atenção aos detalhes, transformando
-          conceitos em soluções que permanecem relevantes. Baseado no Brasil e
-          disponível para projetos globais.
+          BRUNO AMARAL, DESIGNER COM FOCO EM BRANDING, DIREÇÃO DE ARTE, E UX/UI.
+          COMBINO VISÃO ESTRATÉGICA, SENSIBILIDADE ESTÉTICA E PRECISÃO
+          <br />
+          PARA CONSTRUIR MARCAS, PRODUTOS DIGITAIS COM IDENTIDADE PRÓPRIA.&nbsp;
         </p>
 
         <div className="mt-28 md:mt-40 flex flex-col items-center">
