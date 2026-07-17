@@ -27,7 +27,7 @@ function ContactPage() {
     e.preventDefault();
     const subject = `Novo contato — ${form.name} (${form.company || "sem empresa"})`;
     const body = `Nome: ${form.name}\nEmpresa: ${form.company}\nEmail: ${form.email}\n\n${form.message}`;
-    window.location.href = `mailto:${profile.email}@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
