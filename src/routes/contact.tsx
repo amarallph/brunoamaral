@@ -95,7 +95,7 @@ function ContactPage() {
         <ScrollReveal className="ec-contact-side" delay={80}>
           <div>
             <span className="ec-case-info-label">Email</span>
-            <a href={`mailto:${profile.email}@gmail.com`}>{profile.email}@gmail.com</a>
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
           </div>
           <div>
             <span className="ec-case-info-label">Elsewhere</span>
