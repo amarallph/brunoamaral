@@ -27,7 +27,7 @@ function ContactPage() {
     e.preventDefault();
     const subject = `Novo contato — ${form.name} (${form.company || "sem empresa"})`;
     const body = `Nome: ${form.name}\nEmpresa: ${form.company}\nEmail: ${form.email}\n\n${form.message}`;
-    window.location.href = `mailto:${profile.email}@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -95,7 +95,7 @@ function ContactPage() {
         <ScrollReveal className="ec-contact-side" delay={80}>
           <div>
             <span className="ec-case-info-label">Email</span>
-            <a href={`mailto:${profile.email}@gmail.com`}>{profile.email}@gmail.com</a>
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
           </div>
           <div>
             <span className="ec-case-info-label">Elsewhere</span>
