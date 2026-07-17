@@ -49,7 +49,7 @@ export type PortfolioProject = {
 export const profile = {
   name: "Bruno Amaral",
   role: "Graphic Designer · UX/UI",
-  bio: "Designer Gráfico especializado em direção de arte, fotografia\ne\u00a0criação de marcas com forte apelo estético e estratégico. Tenho experiência no desenvolvimento de projetos para, moda, música e empresas de diferentes segmentos.",
+  bio: "Designer Gráfico especializado em direção de arte, fotografia e\u00a0criação de marcas com forte apelo estético e estratégico. Tenho experiência no desenvolvimento de projetos para moda, música e empresas de diferentes segmentos.",
   linkedinUrl: "https://linkedin.com/in/bruno-amaral-a0b895174/",
   behanceUrl: "https://www.behance.net/brunoamaral24",
   email: "brunnoamaral1@hotmail.com",
