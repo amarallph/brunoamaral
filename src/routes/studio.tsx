@@ -42,12 +42,12 @@ function StudioPage() {
       </header>
 
       {/* Main content */}
-      <main className="flex-1 flex flex-col items-center px-6 md:px-10 pt-8 pb-20">
-        <h1 className="font-display text-[16vw] md:text-[12vw] leading-[0.9] tracking-tight text-center">
+      <main className="flex-1 flex flex-col items-center px-6 md:px-10 pt-4 pb-20">
+        <h1 className="font-display font-black text-[22vw] md:text-[13vw] leading-[0.95] tracking-[-0.04em] text-center">
           STUDIO
         </h1>
 
-        <p className="font-display uppercase text-center max-w-6xl mt-12 md:mt-16 text-[6vw] md:text-[3.2vw] leading-[1.05] tracking-tight">
+        <p className="font-display font-black uppercase text-center max-w-[1400px] mt-10 md:mt-14 text-[7vw] md:text-[4.2vw] leading-[1.02] tracking-[-0.02em]">
           Sou Bruno Amaral, designer com foco em branding, direção de arte,
           fotografia e UX/UI. Combino visão estratégica, sensibilidade estética
           e precisão na execução para construir marcas, produtos digitais e
@@ -57,22 +57,22 @@ function StudioPage() {
           disponível para projetos globais.
         </p>
 
-        <div className="mt-24 md:mt-32 flex flex-col items-center">
-          <span className="text-sm mb-6 font-bold">Capabilities</span>
-          <p className="font-display uppercase text-center text-[5vw] md:text-[2.4vw] leading-[1.1] tracking-tight">
+        <div className="mt-28 md:mt-40 flex flex-col items-center">
+          <span className="text-[15px] mb-8 font-bold">Capabilities</span>
+          <p className="font-display font-black uppercase text-center text-[6vw] md:text-[3.6vw] leading-[1.05] tracking-[-0.02em]">
             Art Direction, Brand Identity,
             <br />
             Website Design, Website Development
           </p>
         </div>
 
-        <div className="mt-24 md:mt-32 flex flex-col items-center">
-          <span className="text-sm mb-6 font-bold">Get in touch</span>
-          <ul className="font-display uppercase text-center text-[7vw] md:text-[3.6vw] leading-[1.15] tracking-tight space-y-1">
+        <div className="mt-28 md:mt-40 flex flex-col items-center">
+          <span className="text-[15px] mb-8 font-bold">Get in touch</span>
+          <ul className="font-display font-black uppercase text-center text-[8vw] md:text-[4.2vw] leading-[1.05] tracking-[-0.02em] space-y-0">
             <li>
               <a
                 href="mailto:brunnoamaral1@hotmail.com"
-                className="underline underline-offset-[6px] decoration-[3px] hover:opacity-70"
+                className="underline underline-offset-[8px] decoration-[4px] hover:opacity-70"
               >
                 Let's Talk
               </a>
@@ -82,7 +82,7 @@ function StudioPage() {
                 href="https://www.behance.net/brunoamaral24"
                 target="_blank"
                 rel="noreferrer"
-                className="underline underline-offset-[6px] decoration-[3px] hover:opacity-70"
+                className="underline underline-offset-[8px] decoration-[4px] hover:opacity-70"
               >
                 Behance
               </a>
@@ -92,7 +92,7 @@ function StudioPage() {
                 href="https://www.linkedin.com/in/bruno-amaral-a0b895174"
                 target="_blank"
                 rel="noreferrer"
-                className="underline underline-offset-[6px] decoration-[3px] hover:opacity-70"
+                className="underline underline-offset-[8px] decoration-[4px] hover:opacity-70"
               >
                 LinkedIn
               </a>
