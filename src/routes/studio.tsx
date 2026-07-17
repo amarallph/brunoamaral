@@ -99,7 +99,7 @@ function StudioPage() {
       </main>
 
       {/* Footer */}
-      <footer className="flex items-center justify-between px-6 md:px-10 py-6 text-sm">
+      <footer className="flex items-center justify-between px-6 md:px-10 py-6 text-sm font-bold">
         <span>Creative Studio</span>
         <a
           href="mailto:brunnoamaral1@hotmail.com"
