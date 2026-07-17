@@ -20,7 +20,7 @@ export function SiteFooter() {
 
         <div className="ec-site-footer-col">
           <span className="ec-site-footer-label">Contact</span>
-          <a href={`mailto:${profile.email}@gmail.com`}>{profile.email}@gmail.com</a>
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
           <a href={profile.behanceUrl} target="_blank" rel="noreferrer">
             Behance
           </a>
