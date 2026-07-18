@@ -1083,7 +1083,7 @@
 .ec-studio-hero {
   /* Anchor label — same scale as the reference body text */
   font-size: clamp(1.75rem, 3.55vw, 3.6rem);
-  line-height: 0.8;
+  line-height: 0.9;
 }
 
 .ec-studio-lede {
