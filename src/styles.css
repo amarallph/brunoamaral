@@ -1087,7 +1087,7 @@
 }
 
 .ec-studio-lede {
-  max-width: 62ch;
+  max-width: min(1360px, 94vw); /* mirrors reference lede width @1440 */
 }
 
 .ec-studio-block {
@@ -1103,9 +1103,10 @@
   line-height: 22.5px;
   text-transform: none;
   letter-spacing: normal;
+  font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
-.ec-studio-body { max-width: 60ch; }
+.ec-studio-body { max-width: min(820px, 90vw); } /* reference capabilities width */
 
 .ec-studio-links {
   list-style: none;
