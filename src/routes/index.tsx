@@ -117,7 +117,7 @@ function Footer({ mode }: { mode: ViewMode }) {
       <span className="ec-footer-center">
         {mode === "grid" && "All  /  Web  /  Branding"}
       </span>
-      <a href={`mailto:${profile.email}@gmail.com`}><strong>Email Us</strong></a>
+      <a href={`mailto:${profile.email}`}><strong>Email Us</strong></a>
     </footer>
   );
 }
