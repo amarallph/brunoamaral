@@ -1076,7 +1076,7 @@
   text-transform: uppercase;
   text-align: center;
   font-size: clamp(1.75rem, 3.55vw, 3.6rem); /* 51.2px @1440 */
-  line-height: 0.8;
+  line-height: 0.95;
   margin: 0;
 }
 
