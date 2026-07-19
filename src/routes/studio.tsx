@@ -25,76 +25,47 @@ export const Route = createFileRoute("/studio")({
 
 function StudioPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col ec-studio">
-      {/* Top bar */}
-      <header className="ec-studio-bar">
-        <Link to="/" className="hover:underline font-bold">
-          Bruno Amaral
-        </Link>
-        <nav className="flex items-center gap-6">
-          <Link to="/studio" className="hover:underline font-bold">
-            Studio
-          </Link>
-          <Link to="/lab" className="hover:underline font-bold">
-            Lab
-          </Link>
+    <div className="ec-st">
+      <header className="ec-st-bar">
+        <Link to="/" className="ec-st-bar-link">Bruno Amaral</Link>
+        <nav className="ec-st-bar-nav">
+          <Link to="/studio" className="ec-st-bar-link">Studio</Link>
+          <Link to="/lab" className="ec-st-bar-link">Lab</Link>
         </nav>
       </header>
 
-      {/* Main content */}
-      <main className="ec-studio-main">
-        <h1 className="ec-studio-hero">STUDIO</h1>
+      <main className="ec-st-main">
+        <h1 className="ec-st-title">STUDIO</h1>
 
-        <p className="ec-studio-lede">
+        <p className="ec-st-lede">
           BRUNO AMARAL, DESIGNER COM FOCO EM BRANDING, DIREÇÃO DE ARTE, E UX/UI.
           COMBINO VISÃO ESTRATÉGICA, SENSIBILIDADE ESTÉTICA E PRECISÃO
           <br />
           PARA CONSTRUIR MARCAS, PRODUTOS DIGITAIS COM IDENTIDADE PRÓPRIA.
         </p>
 
-        <section className="ec-studio-block">
-          <span className="ec-studio-label font-bold">Capabilities</span>
-          <p className="ec-studio-body">
+        <section className="ec-st-block">
+          <span className="ec-st-label">Capabilities</span>
+          <p className="ec-st-body">
             ART DIRECTION, BRAND IDENTITY,
             <br />
             WEBSITE DESIGN, WEBSITE DEVELOPMENT
           </p>
         </section>
 
-        <section className="ec-studio-block">
-          <span className="ec-studio-label font-bold">Get in touch</span>
-          <ul className="ec-studio-links">
-            <li>
-              <a href="mailto:brunnoamaral1@hotmail.com">LET'S TALK</a>
-            </li>
-            <li>
-              <a
-                href="https://www.behance.net/brunoamaral24"
-                target="_blank"
-                rel="noreferrer"
-              >
-                BEHANCE
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/bruno-amaral-a0b895174"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LINKEDIN
-              </a>
-            </li>
+        <section className="ec-st-block">
+          <span className="ec-st-label">Get in touch</span>
+          <ul className="ec-st-links">
+            <li><a href="mailto:brunnoamaral1@hotmail.com">LET'S TALK</a></li>
+            <li><a href="https://www.behance.net/brunoamaral24" target="_blank" rel="noreferrer">BEHANCE</a></li>
+            <li><a href="https://www.linkedin.com/in/bruno-amaral-a0b895174" target="_blank" rel="noreferrer">LINKEDIN</a></li>
           </ul>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="ec-studio-bar">
-        <span className="font-bold">Creative Studio</span>
-        <a href="mailto:brunnoamaral1@hotmail.com" className="hover:underline font-bold">
-          Email Us
-        </a>
+      <footer className="ec-st-bar ec-st-bar-footer">
+        <span className="ec-st-bar-link">Creative Studio</span>
+        <a href="mailto:brunnoamaral1@hotmail.com" className="ec-st-bar-link">Email Us</a>
       </footer>
     </div>
   );

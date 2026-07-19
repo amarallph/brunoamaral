@@ -1130,3 +1130,131 @@
   .ec-studio-lede br,
   .ec-studio-body br { display: none; }
 }
+
+/* ===========================================================
+   Studio page v2 — reverse-engineered from emelecollab.com/studio
+   No viewport-height centering. Natural top-to-bottom flow.
+   =========================================================== */
+.ec-st {
+  min-height: 100vh;
+  background: #fff;
+  color: #000;
+  font-family: var(--font-display, "Archivo Black", system-ui, sans-serif);
+  display: flex;
+  flex-direction: column;
+}
+
+.ec-st-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  font-size: 14px;
+  line-height: 1.4;
+  z-index: 2;
+}
+.ec-st-bar-footer {
+  margin-top: auto;
+}
+.ec-st-bar-nav { display: flex; gap: 1.75rem; }
+.ec-st-bar-link {
+  font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
+}
+.ec-st-bar-link:hover { text-decoration: underline; }
+
+.ec-st-main {
+  width: 100%;
+  max-width: none;
+  padding: clamp(1rem, 2vw, 2rem) clamp(1rem, 2.5vw, 2.5rem) clamp(4rem, 8vw, 8rem);
+  display: block;
+  text-align: center;
+}
+
+.ec-st-title,
+.ec-st-lede,
+.ec-st-body,
+.ec-st-links {
+  font-family: var(--font-display, "Archivo Black", system-ui, sans-serif);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+/* STUDIO — large hero word */
+.ec-st-title {
+  font-size: clamp(4rem, 12.5vw, 13rem);
+  line-height: 0.92;
+  margin: 0;
+}
+
+/* Lede — the manifesto paragraph, wide with tight leading */
+.ec-st-lede {
+  font-size: clamp(1.75rem, 4.6vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  width: 88%;
+  max-width: 1720px;
+  margin: clamp(1rem, 2.2vw, 2.4rem) auto 0;
+}
+
+.ec-st-block {
+  display: block;
+  width: 100%;
+  margin-top: clamp(2.5rem, 5.5vw, 5.5rem);
+}
+
+.ec-st-label {
+  display: block;
+  font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #000;
+  margin: 0 0 clamp(0.9rem, 1.6vw, 1.6rem);
+}
+
+.ec-st-body {
+  font-size: clamp(1.5rem, 3.8vw, 3.75rem);
+  line-height: 1.05;
+  width: 92%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.ec-st-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: clamp(1.75rem, 4.2vw, 4.25rem);
+  line-height: 1.05;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05em;
+}
+.ec-st-links a {
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 0.08em;
+  text-decoration-thickness: 0.045em;
+}
+.ec-st-links a:hover { opacity: 0.55; }
+
+@media (max-width: 640px) {
+  .ec-st-title { font-size: clamp(3rem, 18vw, 6rem); }
+  .ec-st-lede { font-size: clamp(1.4rem, 6vw, 2.4rem); width: 94%; }
+  .ec-st-lede br { display: none; }
+  .ec-st-body { font-size: clamp(1.25rem, 5vw, 2rem); }
+  .ec-st-body br { display: none; }
+  .ec-st-links { font-size: clamp(1.4rem, 6vw, 2.4rem); }
+}
+
