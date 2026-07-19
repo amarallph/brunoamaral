@@ -38,11 +38,7 @@ function StudioPage() {
         <h1 className="ec-st-title">STUDIO</h1>
 
         <p className="ec-st-lede">
-          BRUNO AMARAL, DESIGNER&nbsp;COM FOCO EM BRANDING, DIREÇÃO DE ARTE, E UX/UI. COMBINO VISÃO ESTRATÉGICA, SENSIBILIDADE ESTÉTICA
-          <br />
-          E PRECISÃO
-          <br />
-          PARA CONSTRUIR MARCAS, PRODUTOS DIGITAIS COM IDENTIDADE PRÓPRIA.
+          BRUNO AMARAL, DESIGNER COM FOCO EM BRANDING, DIREÇÃO DE ARTE, FOTOGRAFIA E UX/UI. CONSTRUO MARCAS E PRODUTOS DIGITAIS COM IDENTIDADE.
         </p>
 
         <section className="ec-st-block">
