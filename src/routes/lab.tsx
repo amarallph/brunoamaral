@@ -1,9 +1,7 @@
-import { useState } from "react";
-import { SiteFooter } from "@/components/SiteFooter";
+import { useCallback, useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { BackButton } from "@/components/case/BackButton";
+import { SiteFooter } from "@/components/SiteFooter";
 import { portfolioProjects } from "@/lib/portfolio-data";
 import { RouteErrorOverlay } from "@/components/RouteFallbackOverlay";
 
@@ -11,66 +9,103 @@ export const Route = createFileRoute("/lab")({
   head: () => ({
     meta: [
       { title: "Lab — Bruno Amaral" },
-      { name: "description", content: "Experimentos visuais, estudos e explorações criativas." },
+      { name: "description", content: "Experimental ideas and unused client's work." },
       { property: "og:title", content: "Lab — Bruno Amaral" },
-      { property: "og:description", content: "Experimentos visuais, motion, 3D e explorações criativas." },
+      { property: "og:description", content: "Experimental ideas and unused client's work." },
     ],
   }),
   component: LabPage,
   errorComponent: RouteErrorOverlay,
 });
 
-const filters = ["All", "Motion", "3D", "Concept", "Study"] as const;
-
 function LabPage() {
-  const [filter, setFilter] = useState<(typeof filters)[number]>("All");
+  const items = portfolioProjects;
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const experiments = portfolioProjects.map((p, i) => ({
-    ...p,
-    labType: filters[(i % (filters.length - 1)) + 1],
-  }));
-  const list = filter === "All" ? experiments : experiments.filter((e) => e.labType === filter);
+  const close = useCallback(() => setOpenIndex(null), []);
+  const prev = useCallback(
+    () => setOpenIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length)),
+    [items.length],
+  );
+  const next = useCallback(
+    () => setOpenIndex((i) => (i === null ? i : (i + 1) % items.length)),
+    [items.length],
+  );
+
+  useEffect(() => {
+    if (openIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") prev();
+      else if (e.key === "ArrowRight") next();
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [openIndex, close, prev, next]);
+
+  const current = openIndex !== null ? items[openIndex] : null;
 
   return (
-    <div className="ec-page ec-page-lab">
-      <div className="ec-case-topbar">
-        <BackButton label="Back to Home" />
-        <span className="ec-case-index">Lab</span>
-      </div>
+    <div className="ec-lab2">
+      <header className="ec-lab2-hero">
+        <h1 className="ec-lab2-title">LAB</h1>
+        <p className="ec-lab2-subtitle">Experimental ideas and unused client's work</p>
+      </header>
 
-      <ScrollReveal as="header" className="ec-lab-hero">
-        <p className="ec-case-eyebrow">Lab</p>
-        <h1 className="ec-lab-title">Experimentos, protótipos e explorações visuais.</h1>
-      </ScrollReveal>
-
-      <nav className="ec-lab-filters" aria-label="Filtros do lab">
-        {filters.map((f) => (
+      <section className="ec-lab2-grid">
+        {items.map((it, i) => (
           <button
-            key={f}
+            key={it.id}
             type="button"
-            onClick={() => setFilter(f)}
-            data-active={filter === f}
+            className="ec-lab2-cell"
+            onClick={() => setOpenIndex(i)}
+            aria-label={`Open ${it.title.trim()}`}
           >
-            {f}
+            <figure>
+              <img src={it.cover} alt={it.alt} loading="lazy" />
+            </figure>
+            <span className="ec-lab2-num">{String(i + 1).padStart(3, "0")}</span>
           </button>
         ))}
-      </nav>
-
-      <section className="ec-lab-grid">
-        {list.map((e, i) => (
-          <ScrollReveal as="article" key={e.id} className="ec-lab-cell" delay={i * 30}>
-            <figure data-cursor="view">
-              <img src={e.cover} alt={e.alt} loading="lazy" />
-            </figure>
-            <p className="ec-lab-meta">
-              <span>{e.title.trim()}</span>
-              <span aria-hidden>&nbsp;/&nbsp;</span>
-              <span className="ec-lab-cat">{e.labType}</span>
-            </p>
-          </ScrollReveal>
-        ))}
       </section>
+
       <SiteFooter />
+
+      {current ? (
+        <div className="ec-lab2-lightbox" role="dialog" aria-modal="true">
+          <div className="ec-lab2-lightbox-stage">
+            <img src={current.cover} alt={current.alt} />
+          </div>
+          <button
+            type="button"
+            className="ec-lab2-lb-prev"
+            onClick={prev}
+            aria-label="Previous image"
+          >
+            ← Prev image
+          </button>
+          <button
+            type="button"
+            className="ec-lab2-lb-close"
+            onClick={close}
+            aria-label="Close"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            className="ec-lab2-lb-next"
+            onClick={next}
+            aria-label="Next image"
+          >
+            Next image →
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }
