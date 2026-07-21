@@ -1303,18 +1303,17 @@
    Lab page — Emele Collab reference (/lab)
    =========================================================== */
 .ec-lab2 {
-  min-height: 100vh;
   background: #fff;
   color: #111;
-  padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem) 0;
+  padding: 0;
 }
 .ec-lab2-hero {
   text-align: center;
-  padding: clamp(2rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3.5rem);
+  padding: 8px 0 0;
 }
 .ec-lab2-title {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 10vw, 9rem);
+  font-size: 72px;
   font-weight: 900;
   line-height: 0.9;
   letter-spacing: -0.04em;
@@ -1323,33 +1322,41 @@
   color: #111;
 }
 .ec-lab2-subtitle {
-  margin: 1rem 0 0;
-  font-size: clamp(0.85rem, 1vw, 1rem);
+  margin: 8px 0 0;
+  font-size: 15px;
+  font-weight: 400;
   color: #111;
   letter-spacing: 0;
 }
 .ec-lab2-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: clamp(2rem, 3vw, 3.5rem) clamp(1rem, 2vw, 2rem);
-  padding: clamp(2rem, 4vw, 4rem) 0 clamp(4rem, 8vw, 7rem);
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 40px;
+  row-gap: 120px;
+  justify-items: center;
+  align-items: start;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 140px 40px 160px;
 }
 .ec-lab2-cell {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 12px;
   background: transparent;
   border: 0;
   padding: 0;
   cursor: pointer;
   font: inherit;
   color: inherit;
+  width: var(--cell-size, 170px);
+  margin-top: var(--cell-offset, 0px);
 }
 .ec-lab2-cell figure {
   margin: 0;
-  width: 100%;
-  aspect-ratio: 4 / 3;
+  width: var(--cell-size, 170px);
+  height: var(--cell-size, 170px);
   overflow: hidden;
   background: #f4f4f4;
 }
@@ -1362,10 +1369,10 @@
 }
 .ec-lab2-cell:hover img { transform: scale(1.03); }
 .ec-lab2-num {
-  font-size: 0.85rem;
+  font-size: 15px;
   font-weight: 400;
   color: #111;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 
 /* Lightbox */
@@ -1413,8 +1420,11 @@
 .ec-lab2-lb-next:hover { opacity: 0.6; }
 
 @media (max-width: 1100px) {
-  .ec-lab2-grid { grid-template-columns: repeat(4, 1fr); }
+  .ec-lab2-grid { grid-template-columns: repeat(3, 1fr); row-gap: 80px; padding: 100px 32px 120px; }
 }
 @media (max-width: 720px) {
-  .ec-lab2-grid { grid-template-columns: repeat(2, 1fr); }
+  .ec-lab2-grid { grid-template-columns: repeat(2, 1fr); column-gap: 20px; row-gap: 60px; padding: 60px 20px 80px; }
+  .ec-lab2-cell, .ec-lab2-cell figure { width: 140px; height: auto; }
+  .ec-lab2-cell figure { height: 140px; }
 }
+

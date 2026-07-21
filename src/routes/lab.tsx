@@ -18,6 +18,11 @@ export const Route = createFileRoute("/lab")({
   errorComponent: RouteErrorOverlay,
 });
 
+// Deterministic size + vertical stagger variants to mirror the reference's
+// asymmetric scatter (image widths ~156–200px, small per-item Y offsets).
+const SIZE_VARIANTS = [170, 156, 156, 186, 190, 166, 156, 200, 158, 190];
+const OFFSET_VARIANTS = [0, 14, 6, 20, 2, 24, 8, 0, 18, 10];
+
 function LabPage() {
   const items = portfolioProjects;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -57,20 +62,30 @@ function LabPage() {
       </header>
 
       <section className="ec-lab2-grid">
-        {items.map((it, i) => (
-          <button
-            key={it.id}
-            type="button"
-            className="ec-lab2-cell"
-            onClick={() => setOpenIndex(i)}
-            aria-label={`Open ${it.title.trim()}`}
-          >
-            <figure>
-              <img src={it.cover} alt={it.alt} loading="lazy" />
-            </figure>
-            <span className="ec-lab2-num">{String(i + 1).padStart(3, "0")}</span>
-          </button>
-        ))}
+        {items.map((it, i) => {
+          const size = SIZE_VARIANTS[i % SIZE_VARIANTS.length];
+          const offset = OFFSET_VARIANTS[i % OFFSET_VARIANTS.length];
+          return (
+            <button
+              key={it.id}
+              type="button"
+              className="ec-lab2-cell"
+              onClick={() => setOpenIndex(i)}
+              aria-label={`Open ${it.title.trim()}`}
+              style={
+                {
+                  "--cell-size": `${size}px`,
+                  "--cell-offset": `${offset}px`,
+                } as React.CSSProperties
+              }
+            >
+              <span className="ec-lab2-num">{String(i + 1).padStart(3, "0")}</span>
+              <figure>
+                <img src={it.cover} alt={it.alt} loading="lazy" />
+              </figure>
+            </button>
+          );
+        })}
       </section>
 
       <SiteFooter />
@@ -80,28 +95,13 @@ function LabPage() {
           <div className="ec-lab2-lightbox-stage">
             <img src={current.cover} alt={current.alt} />
           </div>
-          <button
-            type="button"
-            className="ec-lab2-lb-prev"
-            onClick={prev}
-            aria-label="Previous image"
-          >
+          <button type="button" className="ec-lab2-lb-prev" onClick={prev} aria-label="Previous image">
             ← Prev image
           </button>
-          <button
-            type="button"
-            className="ec-lab2-lb-close"
-            onClick={close}
-            aria-label="Close"
-          >
+          <button type="button" className="ec-lab2-lb-close" onClick={close} aria-label="Close">
             Close
           </button>
-          <button
-            type="button"
-            className="ec-lab2-lb-next"
-            onClick={next}
-            aria-label="Next image"
-          >
+          <button type="button" className="ec-lab2-lb-next" onClick={next} aria-label="Next image">
             Next image →
           </button>
         </div>
