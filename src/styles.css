@@ -1298,3 +1298,123 @@
 }
 
 
+
+/* ===========================================================
+   Lab page — Emele Collab reference (/lab)
+   =========================================================== */
+.ec-lab2 {
+  min-height: 100vh;
+  background: #fff;
+  color: #111;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 4vw, 4rem) 0;
+}
+.ec-lab2-hero {
+  text-align: center;
+  padding: clamp(2rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3.5rem);
+}
+.ec-lab2-title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin: 0;
+  text-transform: uppercase;
+  color: #111;
+}
+.ec-lab2-subtitle {
+  margin: 1rem 0 0;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  color: #111;
+  letter-spacing: 0;
+}
+.ec-lab2-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(2rem, 3vw, 3.5rem) clamp(1rem, 2vw, 2rem);
+  padding: clamp(2rem, 4vw, 4rem) 0 clamp(4rem, 8vw, 7rem);
+}
+.ec-lab2-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.ec-lab2-cell figure {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+.ec-lab2-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ec-lab2-cell:hover img { transform: scale(1.03); }
+.ec-lab2-num {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: 0.02em;
+}
+
+/* Lightbox */
+.ec-lab2-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 4rem);
+}
+.ec-lab2-lightbox-stage {
+  width: min(90vw, 1400px);
+  height: min(80vh, 900px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ec-lab2-lightbox-stage img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.ec-lab2-lb-prev,
+.ec-lab2-lb-close,
+.ec-lab2-lb-next {
+  position: fixed;
+  bottom: clamp(1.25rem, 2.5vw, 2rem);
+  background: transparent;
+  border: 0;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  font-size: 0.9rem;
+  color: #111;
+  cursor: pointer;
+}
+.ec-lab2-lb-prev { left: clamp(1.5rem, 3vw, 3rem); }
+.ec-lab2-lb-close { left: 50%; transform: translateX(-50%); }
+.ec-lab2-lb-next { right: clamp(1.5rem, 3vw, 3rem); }
+.ec-lab2-lb-prev:hover,
+.ec-lab2-lb-close:hover,
+.ec-lab2-lb-next:hover { opacity: 0.6; }
+
+@media (max-width: 1100px) {
+  .ec-lab2-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 720px) {
+  .ec-lab2-grid { grid-template-columns: repeat(2, 1fr); }
+}
