@@ -15,7 +15,6 @@ import { IntroLoader } from "../components/IntroLoader";
 import { RouteErrorOverlay } from "../components/RouteFallbackOverlay";
 
 import { SmartCursor } from "../components/SmartCursor";
-import { FullscreenMenu } from "../components/FullscreenMenu";
 
 function NotFoundComponent() {
   return (
@@ -128,7 +127,6 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <IntroLoader />
       <SmartCursor />
-      <FullscreenMenu />
       <Outlet />
     </QueryClientProvider>
   );

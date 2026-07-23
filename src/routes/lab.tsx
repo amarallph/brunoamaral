@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import { portfolioProjects } from "@/lib/portfolio-data";
 import { RouteErrorOverlay } from "@/components/RouteFallbackOverlay";
 
@@ -56,6 +57,7 @@ function LabPage() {
 
   return (
     <div className="ec-lab2">
+      <SiteHeader />
       <header className="ec-lab2-hero">
         <h1 className="ec-lab2-title">LAB</h1>
         <p className="ec-lab2-subtitle">Experimental ideas and unused client's work</p>

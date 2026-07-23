@@ -1153,7 +1153,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 10px 100px 0 10px; /* reserve space for the fixed menu trigger (>=32px gap) */
+  padding: 10px;
   font-size: 15px;
   line-height: 1.5;
   pointer-events: none;
@@ -1184,7 +1184,7 @@
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 0 40px 72px;
+  padding: 96px 40px 72px;
   text-align: center;
 }
 
@@ -1313,7 +1313,7 @@
 }
 .ec-lab2-hero {
   text-align: center;
-  padding: 8px 0 0;
+  padding: 96px 0 0;
 }
 .ec-lab2-title {
   font-family: var(--font-display);
