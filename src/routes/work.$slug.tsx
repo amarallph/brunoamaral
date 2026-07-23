@@ -1,5 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 
 import { getProjectBySlug, portfolioProjects } from "@/lib/portfolio-data";
 import { CaseStudy } from "@/components/case/CaseStudy";
@@ -42,6 +43,7 @@ function WorkSlug() {
   const { project } = Route.useLoaderData();
   return (
     <div className="ec-page ec-page-case">
+      <SiteHeader />
       <CaseStudy project={project} />
       <SiteFooter />
     </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -32,6 +33,7 @@ function ContactPage() {
 
   return (
     <div className="ec-page ec-page-contact">
+      <SiteHeader />
       <div className="ec-case-topbar">
         <BackButton label="Back to Home" />
         <span className="ec-case-index">Contact</span>
