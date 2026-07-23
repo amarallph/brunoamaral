@@ -1,5 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { RouteErrorOverlay } from "@/components/RouteFallbackOverlay";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export const Route = createFileRoute("/studio")({
   head: () => ({
@@ -26,13 +27,7 @@ export const Route = createFileRoute("/studio")({
 function StudioPage() {
   return (
     <div className="ec-st">
-      <header className="ec-st-bar">
-        <Link to="/" className="ec-st-bar-link">Bruno Amaral</Link>
-        <nav className="ec-st-bar-nav">
-          <Link to="/studio" className="ec-st-bar-link">Studio</Link>
-          <Link to="/lab" className="ec-st-bar-link">Lab</Link>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <main className="ec-st-main">
         <h1 className="ec-st-title">STUDIO</h1>
