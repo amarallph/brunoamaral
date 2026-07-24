@@ -130,17 +130,22 @@
     align-items: center;
     padding: 1.75rem 3rem;
     background: transparent;
+    font-family: var(--font-body), "Manrope", system-ui, sans-serif;
     font-size: 0.8125rem;
     font-weight: 400;
     letter-spacing: 0;
+    text-transform: none;
   }
 
   .ec-brand {
     justify-self: start;
     text-decoration: none;
     color: #111;
+    font-family: var(--font-body), "Manrope", system-ui, sans-serif;
     font-weight: 400;
     font-size: 0.8125rem;
+    text-transform: none;
+    letter-spacing: 0;
   }
 
   .ec-nav {
@@ -181,7 +186,11 @@
   .ec-header-right a {
     text-decoration: none;
     color: #111;
+    font-family: var(--font-body), "Manrope", system-ui, sans-serif;
     font-weight: 700;
+    font-size: 0.8125rem;
+    text-transform: none;
+    letter-spacing: 0;
   }
 
   @media (max-width: 640px) {
