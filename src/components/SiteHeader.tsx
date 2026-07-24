@@ -18,6 +18,7 @@ export function SiteHeader() {
         <Link to="/studio">
           <strong>Studio</strong>
         </Link>
+        <span aria-hidden="true">&nbsp;&nbsp;</span>
         <Link to="/lab">
           <strong>Lab</strong>
         </Link>
