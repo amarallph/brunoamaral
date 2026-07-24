@@ -130,9 +130,11 @@
     align-items: center;
     padding: 1.75rem 3rem;
     background: transparent;
+    font-family: var(--font-body), "Manrope", system-ui, sans-serif;
     font-size: 0.8125rem;
     font-weight: 400;
     letter-spacing: 0;
+    text-transform: none;
   }
 
   .ec-brand {
