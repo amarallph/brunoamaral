@@ -42,7 +42,7 @@ export function RootTransitionOverlay() {
       data-visible={visible ? "true" : "false"}
       aria-hidden={!visible}
     >
-      <div className="ec-root-transition-overlay-label">Bruno Amaral — Creative Director</div>
+      <div className="ec-root-transition-overlay-label"><strong>Bruno Amaral</strong> — Creative Director</div>
     </div>,
     document.body,
   );
