@@ -3,7 +3,7 @@ export function renderErrorPage(): string {
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Bruno Amaral — Creative Director</title>
+    <title><strong>Bruno Amaral</strong> — Creative Director</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       html { scrollbar-gutter: stable; background: #000; }
@@ -17,7 +17,7 @@ export function renderErrorPage(): string {
   </head>
   <body>
     <div class="overlay">
-      <h1 class="title">Bruno Amaral — Creative Director</h1>
+      <h1 class="title"><strong>Bruno Amaral</strong> — Creative Director</h1>
       <p class="status">Carregando</p>
       <div class="actions">
         <button onclick="location.reload()">Tentar novamente</button>
