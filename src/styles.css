@@ -626,8 +626,10 @@
 
 .ec-case-topbar {
   position: sticky;
-  top: 0;
+  top: 96px;
+  margin-top: 96px;
   z-index: 25;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
