@@ -60,7 +60,7 @@ function LabPage() {
       <SiteHeader />
       <header className="ec-lab2-hero">
         <h1 className="ec-lab2-title">LAB</h1>
-        <p className="ec-lab2-subtitle">Experimental ideas and unused client's work</p>
+        <p className="ec-lab2-subtitle"><strong>Experimental ideas and unused client's work</strong></p>
       </header>
 
       <section className="ec-lab2-grid">

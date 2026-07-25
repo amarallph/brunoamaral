@@ -17,7 +17,7 @@ export function renderErrorPage(): string {
   </head>
   <body>
     <div class="overlay">
-      <h1 class="title">Bruno Amaral — Creative Director</h1>
+      <h1 class="title"><strong>Bruno Amaral</strong> — Creative Director</h1>
       <p class="status">Carregando</p>
       <div class="actions">
         <button onclick="location.reload()">Tentar novamente</button>

@@ -6,7 +6,7 @@ export function SiteFooter() {
     <footer className="ec-site-footer">
       <div className="ec-site-footer-inner">
         <div className="ec-site-footer-col">
-          <p className="ec-site-footer-brand">{profile.name}</p>
+          <p className="ec-site-footer-brand"><strong>{profile.name}</strong></p>
           <p className="ec-site-footer-desc">{profile.bio}</p>
         </div>
 
@@ -31,7 +31,7 @@ export function SiteFooter() {
       </div>
 
       <div className="ec-site-footer-bottom">
-        <span>© {new Date().getFullYear()} Bruno Amaral. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} <strong>Bruno Amaral</strong>. All rights reserved.</span>
         <span>Made with care in São Paulo</span>
       </div>
     </footer>
