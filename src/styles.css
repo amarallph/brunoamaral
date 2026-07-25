@@ -653,6 +653,14 @@
   color: #111;
 }
 
+@media (max-width: 640px) {
+  .ec-case-topbar {
+    top: 64px;
+    margin-top: 64px;
+  }
+}
+
+
 .ec-case-index { color: #888; }
 
 .ec-case,
