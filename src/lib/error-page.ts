@@ -3,7 +3,7 @@ export function renderErrorPage(): string {
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <title><strong>Bruno Amaral</strong> — Creative Director</title>
+    <title>Bruno Amaral — Creative Director</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       html { scrollbar-gutter: stable; background: #000; }
