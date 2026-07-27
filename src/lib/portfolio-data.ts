@@ -175,9 +175,9 @@ export const portfolioProjects: PortfolioProject[] = [
     ...defaults("Joana e Lili", "Identidade Visual"),
     services: ["Brand Identity", "Visual Identity", "Packaging", "Art Direction"],
     gallery: [
-      { type: "full", src: joanaLiliAsset.url },
+      { type: "full", src: "/images/joana-lili-01.png" },
       { type: "text", body: "Joana e Lili pede uma identidade que respire cuidado. Cada elemento foi construído a partir de gestos delicados e proporções sensíveis." },
-      { type: "vertical", src: joanaLiliAsset.url },
+      { type: "vertical", src: "/images/joana-lili-02.png" },
     ],
   },
   {
