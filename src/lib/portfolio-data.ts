@@ -139,9 +139,9 @@ export const portfolioProjects: PortfolioProject[] = [
     ...defaults("Coral Bethel", "Identidade Visual"),
     services: ["Brand Identity", "Logo Design", "Visual Identity", "Art Direction"],
     gallery: [
-      { type: "full", src: coralBethelAsset.url },
+      { type: "full", src: "/images/coral-bethel-01.png" },
       { type: "text", body: "Coral Bethel exige uma marca que soe como o próprio coral: presença, harmonia e reverberação." },
-      { type: "vertical", src: coralBethelAsset.url },
+      { type: "vertical", src: "/images/coral-bethel-02.png" },
     ],
   },
   {
