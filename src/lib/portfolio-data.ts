@@ -214,9 +214,9 @@ export const portfolioProjects: PortfolioProject[] = [
     ...defaults("Frexco", "UX/UI"),
     services: ["UX Design", "UI Design", "Product Design", "Design System"],
     gallery: [
-      { type: "full", src: frexcoAsset.url },
+      { type: "full", src: "/images/frexco-01.jpg" },
       { type: "text", body: "Frexco conecta produtores de hortifrúti ao mercado com uma interface que privilegia leitura rápida, foco no produto e clareza operacional." },
-      { type: "vertical", src: frexcoAsset.url },
+      { type: "vertical", src: "/images/frexco-02.gif" },
     ],
   },
   {
