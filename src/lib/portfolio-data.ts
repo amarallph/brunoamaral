@@ -157,9 +157,9 @@ export const portfolioProjects: PortfolioProject[] = [
     ...defaults("Neurart.io", "Brand Experience"),
     services: ["Brand Identity", "Creative Direction", "Motion", "UI Design"],
     gallery: [
-      { type: "full", src: neurartAsset.url },
+      { type: "full", src: "/images/neurart-01.jpg" },
       { type: "text", body: "Neurart.io investiga a intersecção entre inteligência artificial e criação autoral, construindo um universo material e temporal próprio." },
-      { type: "horizontal", src: neurartAsset.url },
+      { type: "horizontal", src: "/images/neurart-02.jpg" },
     ],
   },
   {
