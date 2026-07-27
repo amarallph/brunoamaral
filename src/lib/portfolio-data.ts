@@ -121,7 +121,7 @@ export const portfolioProjects: PortfolioProject[] = [
     services: ["Brand Identity", "Visual Identity", "Brand Strategy", "UI Design"],
     gallery: [
       { type: "full", src: "/images/braza-01.png" },
-      { type: "text", body: "Braza.io opera na fronteira entre finanças e cultura digital. A identidade traduz essa dualidade com contraste, escala e um sistema tipográfico deliberadamente amplo." },
+      { type: "text", body: "Braza.io opera na fronteira entre finanças e cultura digital.\nA identidade traduz essa dualidade com contraste, escala e um sistema tipográfico deliberadamente amplo." },
       { type: "horizontal", src: "/images/braza-02.png" },
     ],
 
