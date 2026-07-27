@@ -669,7 +669,7 @@
 .ec-page-lab,
 .ec-page-contact {
   max-width: 1400px;
-  margin: 0 auto;
+  white-space: pre-wrap;
   padding: 0 clamp(1.5rem, 4vw, 3rem);
 }
 
