@@ -232,9 +232,9 @@ export const portfolioProjects: PortfolioProject[] = [
     ...defaults("Agronomy", "App Concept"),
     services: ["UX Design", "UI Design", "Concept", "Visual Identity"],
     gallery: [
-      { type: "full", src: agronomyAsset.url },
+      { type: "full", src: "/images/agronomy-01.jpg" },
       { type: "text", body: "Agronomy propõe uma nova gramática visual para o agro brasileiro, aproximando tecnologia, campo e interface." },
-      { type: "horizontal", src: agronomyAsset.url },
+      { type: "horizontal", src: "/images/agronomy-02.jpg" },
     ],
   },
   {
