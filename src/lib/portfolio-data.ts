@@ -250,9 +250,9 @@ export const portfolioProjects: PortfolioProject[] = [
     ...defaults("Rolim Advogados", "Branding"),
     services: ["Brand Identity", "Visual Identity", "Brand Strategy", "Art Direction"],
     gallery: [
-      { type: "full", src: rolimAsset.url },
+      { type: "full", src: "/images/rolim-01.png" },
       { type: "text", body: "Rolim Advogados constrói autoridade a partir de uma identidade sóbria, precisa e contemporânea, sustentada por um sistema tipográfico rigoroso." },
-      { type: "horizontal", src: rolimAsset.url },
+      { type: "horizontal", src: "/images/rolim-02.png" },
     ],
   },
 ];
