@@ -84,10 +84,6 @@ function LabPage() {
               <span className="ec-lab2-num">{String(i + 1).padStart(3, "0")}</span>
               <figure>
                 <img src={it.cover} alt={it.alt} loading="lazy" />
-                <span className="ec-lab2-overlay" aria-hidden="true">
-                  <span className="ec-lab2-overlay-num">{String(i + 1).padStart(3, "0")}</span>
-                  <span className="ec-lab2-overlay-title">{it.title.trim()}</span>
-                </span>
               </figure>
             </button>
           );
