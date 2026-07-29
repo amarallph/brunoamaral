@@ -1373,6 +1373,7 @@
   padding: 140px 40px 160px;
 }
 .ec-lab2-cell {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
