@@ -1385,7 +1385,6 @@
   font: inherit;
   color: inherit;
   width: var(--cell-size, 170px);
-  margin-top: var(--cell-offset, 0px);
 }
 .ec-lab2-cell figure {
   margin: 0;
@@ -1394,6 +1393,7 @@
   height: var(--cell-size, 170px);
   overflow: hidden;
   background: #f4f4f4;
+  margin-top: var(--cell-offset, 0px);
 }
 .ec-lab2-cell img {
   width: 100%;
