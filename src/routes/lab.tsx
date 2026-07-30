@@ -83,7 +83,7 @@ function LabPage() {
             >
               <span className="ec-lab2-num">{String(i + 1).padStart(3, "0")}</span>
               <figure>
-                <img src={it.cover} alt={it.alt} loading="lazy" />
+                <img className="ec-lab2-thumb" src={it.cover} alt={it.alt} loading="lazy" />
               </figure>
             </button>
           );
