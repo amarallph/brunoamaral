@@ -1427,9 +1427,9 @@
   position: absolute;
   inset: 0;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   opacity: 0;
   transition: opacity 300ms ease-out;
   z-index: -1;
