@@ -81,7 +81,10 @@ function LabPage() {
                 } as React.CSSProperties
               }
             >
-              <span className="ec-lab2-num">{String(i + 1).padStart(3, "0")}</span>
+              <span className="ec-lab2-num">
+                <span className="ec-lab2-num-glass" aria-hidden="true" />
+                <span className="ec-lab2-num-text">{String(i + 1).padStart(3, "0")}</span>
+              </span>
               <figure>
                 <img className="ec-lab2-thumb" src={it.cover} alt={it.alt} loading="lazy" />
               </figure>
