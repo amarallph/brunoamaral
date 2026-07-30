@@ -1392,12 +1392,8 @@
   position: relative;
   width: var(--cell-size, 170px);
   height: var(--cell-size, 170px);
-  overflow: visible;
+  overflow: hidden;
   background: #f4f4f4;
-  transform: scale(1);
-  transform-origin: center center;
-  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
 }
 .ec-lab2-cell img {
   width: 100%;
@@ -1405,16 +1401,33 @@
   object-fit: cover;
   display: block;
 }
-.ec-lab2-cell:hover,
-.ec-lab2-cell:focus-visible { z-index: 5; }
-.ec-lab2-cell:hover figure,
-.ec-lab2-cell:focus-visible figure { transform: scale(1.16); }
+.ec-lab2-thumb {
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 400ms ease-out;
+  will-change: transform;
+}
+.ec-lab2-cell:hover .ec-lab2-thumb,
+.ec-lab2-cell:focus-visible .ec-lab2-thumb {
+  transform: scale(1.05);
+}
 .ec-lab2-num {
   font-size: 15px;
   font-weight: 700;
   color: #111;
   letter-spacing: 0;
+  opacity: 1;
+  filter: blur(0);
+  transition: filter 400ms ease-out, opacity 400ms ease-out;
+  will-change: filter, opacity;
 }
+.ec-lab2-cell:hover .ec-lab2-num,
+.ec-lab2-cell:focus-visible .ec-lab2-num {
+  filter: blur(4px);
+  opacity: 0.5;
+}
+.ec-lab2-cell:hover,
+.ec-lab2-cell:focus-visible { z-index: 5; }
 
 /* Lightbox */
 .ec-lab2-lightbox {
