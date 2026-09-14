@@ -28,6 +28,7 @@ export type PortfolioProject = {
   category: string;
   year: string;
   cover: string;
+  caseCover?: string;
   alt: string;
   summary: string;
   behanceUrl: string;
