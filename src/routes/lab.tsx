@@ -47,7 +47,7 @@ const labItems = [
   { id: "017", slug: "yapex", title: "Yapex", cover: "/images/lab/yapex-13.webp", alt: "Yapex — identidade visual" },
   { id: "018", slug: "br2t", title: "BR2T", cover: "/images/lab/br2t-14.png", alt: "BR2T — identidade visual" },
   { id: "019", slug: "paula-monteiro", title: "Paula Monteiro", cover: "/images/lab/paula-monteiro-15.png", alt: "Paula Monteiro — identidade visual" },
-  { id: "020", slug: "off-shore-presents-story", title: "Off Shore Presents Story", cover: "/images/lab/off-shore-presents-story-16.jpg", alt: "Off Shore Presents — story experimental" },
+  { id: "020", slug: "off-shore-presents-story", title: "Off Shore Presents Story", cover: "/images/lab/chatgpt-20.png", alt: "Off Shore Presents — story experimental" },
   { id: "021", slug: "arthezary-bag", title: "Arthezary Bag", cover: "/images/lab/arthezary-bag-17.png", alt: "Aplicação de bolsa Arthezary" },
 ];
 
