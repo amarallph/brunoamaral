@@ -349,9 +349,6 @@
   .ec-floating-thumb[data-slug="elgin"] img {
     object-fit: contain;
   }
-  .ec-lab2-cell[data-slug="elgin"] .ec-lab2-thumb {
-    object-fit: contain;
-  }
 
   .ec-grid-meta {
     margin: 0;
@@ -1411,6 +1408,9 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.ec-lab2-cell[data-slug="elgin"] .ec-lab2-thumb {
+  object-fit: contain;
 }
 .ec-lab2-thumb {
   transform: scale(1);
