@@ -88,7 +88,7 @@ function LabPage() {
 
       <section className="ec-lab2-grid">
         {items.map((it, i) => {
-          const size = SIZE_VARIANTS[i % SIZE_VARIANTS.length];
+          const size = SIZE_VARIANTS[0];
           const offset = OFFSET_VARIANTS[i % OFFSET_VARIANTS.length];
           return (
             <button
