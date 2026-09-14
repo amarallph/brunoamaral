@@ -52,7 +52,7 @@ export function CaseStudy({ project }: { project: PortfolioProject }) {
 
       {/* Full cover */}
       <ScrollReveal as="figure" className="ec-case-full">
-        <img src={project.cover} alt={project.alt} />
+        <img src={project.caseCover ?? project.cover} alt={project.alt} />
       </ScrollReveal>
 
       {/* Problem & Objectives */}
