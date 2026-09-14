@@ -40,7 +40,7 @@ const labItems = [
   { id: "010", slug: "dytm-look", title: "Don't You Trust Me? Look", cover: "/images/lab/dytm-look-10.png", alt: "Don't You Trust Me? — editorial de lookbook" },
   { id: "011", slug: "off-shore-season", title: "Off Shore Season 01", cover: "/images/lab/off-shore-season-07.jpg", alt: "Off Shore Season 01 — campanha experimental" },
   { id: "012", slug: "aqua-roma", title: "Aqua Roma", cover: "/images/lab/aqua-roma-08.png", alt: "Logo Aqua Roma" },
-  { id: "013", slug: "industrial-bench", title: "Industrial Stainless Bench", cover: "/images/lab/industrial-bench-09.png", alt: "Bancada de inox com design industrial" },
+  { id: "013", slug: "industrial-bench", title: "Industrial Stainless Bench", cover: "/images/lab/arvora-post-13.png", alt: "Bancada de inox com design industrial" },
   { id: "014", slug: "kamarillia", title: "Kamarillia", cover: "/images/lab/kamarillia-10.png", alt: "Kamarillia — direção visual de banda" },
   { id: "015", slug: "growth-trail", title: "Growth Trail", cover: "/images/lab/growth-trail-11.png", alt: "Growth Trail — estudo gráfico experimental" },
   { id: "016", slug: "arthezary", title: "Arthezary", cover: "/images/lab/arthezary-12.webp", alt: "Arthezary — identidade visual" },
