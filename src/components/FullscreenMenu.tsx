@@ -72,7 +72,10 @@ export function FullscreenMenu({ alwaysShowTrigger = false }: { alwaysShowTrigge
                       {it.label}
                     </a>
                   ) : (
-                    <Link to={it.to} onClick={() => setOpen(false)}>
+                    <Link
+                      to={it.to as "/" | "/studio" | "/lab" | "/contact"}
+                      onClick={() => setOpen(false)}
+                    >
                       {it.label}
                     </Link>
                   )}
