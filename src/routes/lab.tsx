@@ -53,6 +53,13 @@ const labItems = [
   { id: "008", slug: "aqua-roma", title: "Aqua Roma", cover: aquaRomaAsset.url, alt: "Logo Aqua Roma" },
   { id: "009", slug: "industrial-bench", title: "Industrial Stainless Bench", cover: industrialBenchAsset.url, alt: "Bancada de inox com design industrial" },
   { id: "010", slug: "kamarillia", title: "Kamarillia", cover: kamarilliaAsset.url, alt: "Kamarillia — direção visual de banda" },
+  { id: "011", slug: "growth-trail", title: "Growth Trail", cover: growthTrailAsset.url, alt: "Growth Trail — estudo gráfico experimental" },
+  { id: "012", slug: "arthezary", title: "Arthezary", cover: arthezaryAsset.url, alt: "Arthezary — identidade visual" },
+  { id: "013", slug: "yapex", title: "Yapex", cover: yapexAsset.url, alt: "Yapex — identidade visual" },
+  { id: "014", slug: "br2t", title: "BR2T", cover: br2tAsset.url, alt: "BR2T — identidade visual" },
+  { id: "015", slug: "paula-monteiro", title: "Paula Monteiro", cover: paulaMonteiroAsset.url, alt: "Paula Monteiro — identidade visual" },
+  { id: "016", slug: "off-shore-presents-story", title: "Off Shore Presents Story", cover: offShorePresentsStoryAsset.url, alt: "Off Shore Presents — story experimental" },
+  { id: "017", slug: "arthezary-bag", title: "Arthezary Bag", cover: arthezaryBagAsset.url, alt: "Aplicação de bolsa Arthezary" },
 ];
 
 function LabPage() {
