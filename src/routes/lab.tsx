@@ -4,23 +4,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { RouteErrorOverlay } from "@/components/RouteFallbackOverlay";
-import offShoreAsset from "@/assets/lab/post_off_shore_01.jpg.asset.json";
-import arvoraAsset from "@/assets/lab/Post_Arvora_02.png.asset.json";
-import deadMoodboardAsset from "@/assets/lab/moodboard_design_Tshirt_Dead_03.png.asset.json";
-import offShorePresentsAsset from "@/assets/lab/T_shirt_Offshore_presents_04.jpg.asset.json";
-import lightsAsset from "@/assets/lab/POST_LIGTHS_05.jpg.asset.json";
-import organicMetalChairAsset from "@/assets/lab/Design_organic_metaic_cadeira_06.png.asset.json";
-import offShoreSeasonAsset from "@/assets/lab/Story_OFF_SHORE_Season_07.jpg.asset.json";
-import aquaRomaAsset from "@/assets/lab/Logo_Aqua_roma_08.png.asset.json";
-import industrialBenchAsset from "@/assets/lab/Bancada_inox_deisgn_industrial_09.png.asset.json";
-import kamarilliaAsset from "@/assets/lab/Logo_banda_Kamarillia_10.png.asset.json";
-import growthTrailAsset from "@/assets/lab/Post_Growth_Trail_11.png.asset.json";
-import arthezaryAsset from "@/assets/lab/Logo_Arthezary_12.webp.asset.json";
-import yapexAsset from "@/assets/lab/Logo_Yapex_13.webp.asset.json";
-import br2tAsset from "@/assets/lab/Logo_BR2T_14.png.asset.json";
-import paulaMonteiroAsset from "@/assets/lab/Logo_Paula_Monteiro_15.png.asset.json";
-import offShorePresentsStoryAsset from "@/assets/lab/story_Off_shore_Presents_16.jpg.asset.json";
-import arthezaryBagAsset from "@/assets/lab/Aplicacao_bolsa_Arthezary_16.png.asset.json";
+
+
 
 export const Route = createFileRoute("/lab")({
   head: () => ({
