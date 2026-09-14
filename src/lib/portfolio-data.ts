@@ -95,7 +95,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Elgin",
     category: "Ecommerce · UX/UI",
     year: "2026",
-    cover: "/images/elgin-kv.png",
+    cover: "/images/elgin-laptop.png",
     alt: "Capa do projeto Elgin — Dia das Mães",
     summary: "Conceito de ecommerce para a Elgin com campanha de Dia das Mães, unindo direção de arte, social media e uma landing page completa.",
     behanceUrl: "https://www.behance.net/gallery/255720799/Elgin-Ecommerce-Website-Design-Concept",
