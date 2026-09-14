@@ -33,7 +33,7 @@ const labItems = [
   { id: "003", slug: "dead-moodboard", title: "Dead Moodboard", cover: "/images/lab/dead-moodboard-03.png", alt: "Moodboard experimental com ilustrações e estudos de camiseta" },
   { id: "004", slug: "off-shore-presents", title: "Off Shore Presents", cover: "/images/lab/organic-metal-chair-06.png", alt: "Camiseta Off Shore Presents" },
   { id: "005", slug: "lights", title: "Lights", cover: "/images/lab/lights-05.jpg", alt: "Lights — estudo gráfico experimental" },
-  { id: "006", slug: "organic-metal-chair", title: "Organic Metal Chair", cover: "/images/lab/organic-metal-chair-06.png", alt: "Cadeira metálica de design orgânico" },
+  { id: "006", slug: "organic-metal-chair", title: "Organic Metal Chair", cover: "/images/lab/costas-john-06.jpg", alt: "Cadeira metálica de design orgânico" },
   { id: "007", slug: "off-shore-hoodie", title: "Off Shore Hoodie", cover: "/images/lab/off-shore-hoodie-07.jpg", alt: "Moletom Off Shore — mockup de produto" },
   { id: "008", slug: "off-shore-look", title: "Off Shore Look", cover: "/images/lab/off-shore-look-08.png", alt: "Off Shore — editorial de lookbook em concreto" },
   { id: "009", slug: "dytm-sweater", title: "Don't You Trust Me? Sweater", cover: "/images/lab/dytm-sweater-09.jpg", alt: "Moletom Don't You Trust Me? — mockup de produto" },
