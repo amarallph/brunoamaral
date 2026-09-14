@@ -82,7 +82,7 @@ export function Preloader({ onDone }: Props) {
         imgs[idx].style.opacity = "0";
         idx = (idx + 1) % imgs.length;
         imgs[idx].style.opacity = "1";
-      }, 110);
+      }, 140);
 
       // Kick off the readiness check in parallel with the intro so the reveal
       // fires the instant the page is ready — never sits on a static frame.
