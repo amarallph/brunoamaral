@@ -72,6 +72,7 @@ function LabPage() {
               key={it.id}
               type="button"
               className="ec-lab2-cell"
+              data-slug={it.slug}
               onClick={() => setOpenIndex(i)}
               aria-label={`Open ${it.title.trim()}`}
               style={

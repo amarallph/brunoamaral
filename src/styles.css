@@ -342,6 +342,14 @@
     filter: grayscale(100%);
   }
 
+  /* Elgin: show full image without crop (contain instead of cover) */
+  .ec-grid-cover[data-slug="elgin"] img {
+    object-fit: contain;
+  }
+  .ec-floating-thumb[data-slug="elgin"] img {
+    object-fit: contain;
+  }
+
   .ec-grid-meta {
     margin: 0;
     text-align: center;
@@ -1400,6 +1408,9 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.ec-lab2-cell[data-slug="elgin"] .ec-lab2-thumb {
+  object-fit: contain;
 }
 .ec-lab2-thumb {
   transform: scale(1);
