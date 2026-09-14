@@ -90,6 +90,27 @@ const defaults = (title: string, category: string) => ({
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    id: "elgin",
+    slug: "elgin",
+    title: "Elgin",
+    category: "Ecommerce · UX/UI",
+    year: "2026",
+    cover: "/images/elgin-kv.png",
+    alt: "Capa do projeto Elgin — Dia das Mães",
+    summary: "Conceito de ecommerce para a Elgin com campanha de Dia das Mães, unindo direção de arte, social media e uma landing page completa.",
+    behanceUrl: "https://www.behance.net/gallery/255720799/Elgin-Ecommerce-Website-Design-Concept",
+    ...defaults("Elgin", "Ecommerce · UX/UI"),
+    client: "Elgin",
+    services: ["Creative Direction", "UX Design", "UI Design", "Art Direction", "Social Media"],
+    overview: "Elgin Ecommerce é um conceito de website desenvolvido em torno da campanha de Dia das Mães da marca, traduzindo o cuidado presente no dia a dia em uma experiência digital acolhedora e funcional.",
+    gallery: [
+      { type: "full", src: "/images/elgin-kv.png", caption: "KV oficial — Dia das Mães Elgin" },
+      { type: "text", body: "Cuidado que transforma o dia a dia.\nA campanha traduz o afeto em linguagem visual: fotografia quente, tipografia clara e o azul Elgin como assinatura." },
+      { type: "horizontal", src: "/images/elgin-social.png", caption: "Social media — conteúdo que conecta" },
+      { type: "full", src: "/images/elgin-lp.png", caption: "Landing page — ecommerce Dia das Mães" },
+    ],
+  },
+  {
     id: "inimigos-do-pace",
     slug: "inimigos-do-pace",
     title: "INIMIGOS DO PACE X NB",
