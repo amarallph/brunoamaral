@@ -14,6 +14,13 @@ import offShoreSeasonAsset from "@/assets/lab/Story_OFF_SHORE_Season_07.jpg.asse
 import aquaRomaAsset from "@/assets/lab/Logo_Aqua_roma_08.png.asset.json";
 import industrialBenchAsset from "@/assets/lab/Bancada_inox_deisgn_industrial_09.png.asset.json";
 import kamarilliaAsset from "@/assets/lab/Logo_banda_Kamarillia_10.png.asset.json";
+import growthTrailAsset from "@/assets/lab/Post_Growth_Trail_11.png.asset.json";
+import arthezaryAsset from "@/assets/lab/Logo_Arthezary_12.webp.asset.json";
+import yapexAsset from "@/assets/lab/Logo_Yapex_13.webp.asset.json";
+import br2tAsset from "@/assets/lab/Logo_BR2T_14.png.asset.json";
+import paulaMonteiroAsset from "@/assets/lab/Logo_Paula_Monteiro_15.png.asset.json";
+import offShorePresentsStoryAsset from "@/assets/lab/story_Off_shore_Presents_16.jpg.asset.json";
+import arthezaryBagAsset from "@/assets/lab/Aplicacao_bolsa_Arthezary_16.png.asset.json";
 
 export const Route = createFileRoute("/lab")({
   head: () => ({
