@@ -14,6 +14,13 @@ import offShoreSeasonAsset from "@/assets/lab/Story_OFF_SHORE_Season_07.jpg.asse
 import aquaRomaAsset from "@/assets/lab/Logo_Aqua_roma_08.png.asset.json";
 import industrialBenchAsset from "@/assets/lab/Bancada_inox_deisgn_industrial_09.png.asset.json";
 import kamarilliaAsset from "@/assets/lab/Logo_banda_Kamarillia_10.png.asset.json";
+import growthTrailAsset from "@/assets/lab/Post_Growth_Trail_11.png.asset.json";
+import arthezaryAsset from "@/assets/lab/Logo_Arthezary_12.webp.asset.json";
+import yapexAsset from "@/assets/lab/Logo_Yapex_13.webp.asset.json";
+import br2tAsset from "@/assets/lab/Logo_BR2T_14.png.asset.json";
+import paulaMonteiroAsset from "@/assets/lab/Logo_Paula_Monteiro_15.png.asset.json";
+import offShorePresentsStoryAsset from "@/assets/lab/story_Off_shore_Presents_16.jpg.asset.json";
+import arthezaryBagAsset from "@/assets/lab/Aplicacao_bolsa_Arthezary_16.png.asset.json";
 
 export const Route = createFileRoute("/lab")({
   head: () => ({
@@ -46,6 +53,13 @@ const labItems = [
   { id: "008", slug: "aqua-roma", title: "Aqua Roma", cover: aquaRomaAsset.url, alt: "Logo Aqua Roma" },
   { id: "009", slug: "industrial-bench", title: "Industrial Stainless Bench", cover: industrialBenchAsset.url, alt: "Bancada de inox com design industrial" },
   { id: "010", slug: "kamarillia", title: "Kamarillia", cover: kamarilliaAsset.url, alt: "Kamarillia — direção visual de banda" },
+  { id: "011", slug: "growth-trail", title: "Growth Trail", cover: growthTrailAsset.url, alt: "Growth Trail — estudo gráfico experimental" },
+  { id: "012", slug: "arthezary", title: "Arthezary", cover: arthezaryAsset.url, alt: "Arthezary — identidade visual" },
+  { id: "013", slug: "yapex", title: "Yapex", cover: yapexAsset.url, alt: "Yapex — identidade visual" },
+  { id: "014", slug: "br2t", title: "BR2T", cover: br2tAsset.url, alt: "BR2T — identidade visual" },
+  { id: "015", slug: "paula-monteiro", title: "Paula Monteiro", cover: paulaMonteiroAsset.url, alt: "Paula Monteiro — identidade visual" },
+  { id: "016", slug: "off-shore-presents-story", title: "Off Shore Presents Story", cover: offShorePresentsStoryAsset.url, alt: "Off Shore Presents — story experimental" },
+  { id: "017", slug: "arthezary-bag", title: "Arthezary Bag", cover: arthezaryBagAsset.url, alt: "Aplicação de bolsa Arthezary" },
 ];
 
 function LabPage() {
