@@ -49,7 +49,7 @@ export type PortfolioProject = {
 export const profile = {
   name: "Bruno Amaral",
   role: "Graphic Designer · UX/UI",
-  bio: "Designer Gráfico especializado em direção de arte, fotografia e\u00a0criação de marcas com forte apelo estético e estratégico. Tenho experiência no desenvolvimento de projetos para moda, música e empresas de diferentes segmentos.",
+  bio: "Atuo como Diretor Criativo, com uma visão estratégica que conecta criatividade, branding, cultura, comunicação e negócios para construir marcas relevantes, desejáveis e consistentes. Minha atuação está na interseção entre direção criativa e estratégia de marca, liderando conceitos e projetos desde o pensamento estratégico até sua materialização visual e experiência final.",
   linkedinUrl: "https://linkedin.com/in/bruno-amaral-a0b895174/",
   behanceUrl: "https://www.behance.net/brunoamaral24",
   email: "brunnoamaral1@hotmail.com",
