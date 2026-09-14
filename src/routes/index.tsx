@@ -164,6 +164,7 @@ function ListView({
       {hovered !== null && (
         <div
           className="ec-floating-thumb"
+          data-slug={projects[hovered].slug}
           style={{ left: pos.x, top: pos.y }}
           aria-hidden="true"
         >
@@ -191,6 +192,7 @@ function GridView({
             to="/work/$slug"
             params={{ slug: p.slug }}
             className="ec-grid-cover"
+            data-slug={p.slug}
             aria-label={`Abrir ${p.title.trim()}`}
             data-cursor="view"
           >
