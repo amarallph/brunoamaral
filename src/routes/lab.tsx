@@ -4,23 +4,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { RouteErrorOverlay } from "@/components/RouteFallbackOverlay";
-import offShoreAsset from "@/assets/lab/post_off_shore_01.jpg.asset.json";
-import arvoraAsset from "@/assets/lab/Post_Arvora_02.png.asset.json";
-import deadMoodboardAsset from "@/assets/lab/moodboard_design_Tshirt_Dead_03.png.asset.json";
-import offShorePresentsAsset from "@/assets/lab/T_shirt_Offshore_presents_04.jpg.asset.json";
-import lightsAsset from "@/assets/lab/POST_LIGTHS_05.jpg.asset.json";
-import organicMetalChairAsset from "@/assets/lab/Design_organic_metaic_cadeira_06.png.asset.json";
-import offShoreSeasonAsset from "@/assets/lab/Story_OFF_SHORE_Season_07.jpg.asset.json";
-import aquaRomaAsset from "@/assets/lab/Logo_Aqua_roma_08.png.asset.json";
-import industrialBenchAsset from "@/assets/lab/Bancada_inox_deisgn_industrial_09.png.asset.json";
-import kamarilliaAsset from "@/assets/lab/Logo_banda_Kamarillia_10.png.asset.json";
-import growthTrailAsset from "@/assets/lab/Post_Growth_Trail_11.png.asset.json";
-import arthezaryAsset from "@/assets/lab/Logo_Arthezary_12.webp.asset.json";
-import yapexAsset from "@/assets/lab/Logo_Yapex_13.webp.asset.json";
-import br2tAsset from "@/assets/lab/Logo_BR2T_14.png.asset.json";
-import paulaMonteiroAsset from "@/assets/lab/Logo_Paula_Monteiro_15.png.asset.json";
-import offShorePresentsStoryAsset from "@/assets/lab/story_Off_shore_Presents_16.jpg.asset.json";
-import arthezaryBagAsset from "@/assets/lab/Aplicacao_bolsa_Arthezary_16.png.asset.json";
+
+
 
 export const Route = createFileRoute("/lab")({
   head: () => ({
@@ -43,23 +28,23 @@ const SIZE_VARIANTS = [170, 156, 156, 186, 190, 166, 156, 200, 158, 190];
 const OFFSET_VARIANTS = [0, 14, 6, 20, 2, 24, 8, 0, 18, 10];
 
 const labItems = [
-  { id: "001", slug: "off-shore", title: "Off Shore", cover: offShoreAsset.url, alt: "Off Shore — coleção experimental em concreto" },
-  { id: "002", slug: "arvora", title: "Arvorá", cover: arvoraAsset.url, alt: "Arvorá — direção visual de arquitetura e natureza" },
-  { id: "003", slug: "dead-moodboard", title: "Dead Moodboard", cover: deadMoodboardAsset.url, alt: "Moodboard experimental com ilustrações e estudos de camiseta" },
-  { id: "004", slug: "off-shore-presents", title: "Off Shore Presents", cover: offShorePresentsAsset.url, alt: "Camiseta Off Shore Presents" },
-  { id: "005", slug: "lights", title: "Lights", cover: lightsAsset.url, alt: "Lights — estudo gráfico experimental" },
-  { id: "006", slug: "organic-metal-chair", title: "Organic Metal Chair", cover: organicMetalChairAsset.url, alt: "Cadeira metálica de design orgânico" },
-  { id: "007", slug: "off-shore-season", title: "Off Shore Season 01", cover: offShoreSeasonAsset.url, alt: "Off Shore Season 01 — campanha experimental" },
-  { id: "008", slug: "aqua-roma", title: "Aqua Roma", cover: aquaRomaAsset.url, alt: "Logo Aqua Roma" },
-  { id: "009", slug: "industrial-bench", title: "Industrial Stainless Bench", cover: industrialBenchAsset.url, alt: "Bancada de inox com design industrial" },
-  { id: "010", slug: "kamarillia", title: "Kamarillia", cover: kamarilliaAsset.url, alt: "Kamarillia — direção visual de banda" },
-  { id: "011", slug: "growth-trail", title: "Growth Trail", cover: growthTrailAsset.url, alt: "Growth Trail — estudo gráfico experimental" },
-  { id: "012", slug: "arthezary", title: "Arthezary", cover: arthezaryAsset.url, alt: "Arthezary — identidade visual" },
-  { id: "013", slug: "yapex", title: "Yapex", cover: yapexAsset.url, alt: "Yapex — identidade visual" },
-  { id: "014", slug: "br2t", title: "BR2T", cover: br2tAsset.url, alt: "BR2T — identidade visual" },
-  { id: "015", slug: "paula-monteiro", title: "Paula Monteiro", cover: paulaMonteiroAsset.url, alt: "Paula Monteiro — identidade visual" },
-  { id: "016", slug: "off-shore-presents-story", title: "Off Shore Presents Story", cover: offShorePresentsStoryAsset.url, alt: "Off Shore Presents — story experimental" },
-  { id: "017", slug: "arthezary-bag", title: "Arthezary Bag", cover: arthezaryBagAsset.url, alt: "Aplicação de bolsa Arthezary" },
+  { id: "001", slug: "off-shore", title: "Off Shore", cover: "/images/lab/off-shore-01.jpg", alt: "Off Shore — coleção experimental em concreto" },
+  { id: "002", slug: "arvora", title: "Arvorá", cover: "/images/lab/arvora-02.png", alt: "Arvorá — direção visual de arquitetura e natureza" },
+  { id: "003", slug: "dead-moodboard", title: "Dead Moodboard", cover: "/images/lab/dead-moodboard-03.png", alt: "Moodboard experimental com ilustrações e estudos de camiseta" },
+  { id: "004", slug: "off-shore-presents", title: "Off Shore Presents", cover: "/images/lab/off-shore-presents-04.jpg", alt: "Camiseta Off Shore Presents" },
+  { id: "005", slug: "lights", title: "Lights", cover: "/images/lab/lights-05.jpg", alt: "Lights — estudo gráfico experimental" },
+  { id: "006", slug: "organic-metal-chair", title: "Organic Metal Chair", cover: "/images/lab/organic-metal-chair-06.png", alt: "Cadeira metálica de design orgânico" },
+  { id: "007", slug: "off-shore-season", title: "Off Shore Season 01", cover: "/images/lab/off-shore-season-07.jpg", alt: "Off Shore Season 01 — campanha experimental" },
+  { id: "008", slug: "aqua-roma", title: "Aqua Roma", cover: "/images/lab/aqua-roma-08.png", alt: "Logo Aqua Roma" },
+  { id: "009", slug: "industrial-bench", title: "Industrial Stainless Bench", cover: "/images/lab/industrial-bench-09.png", alt: "Bancada de inox com design industrial" },
+  { id: "010", slug: "kamarillia", title: "Kamarillia", cover: "/images/lab/kamarillia-10.png", alt: "Kamarillia — direção visual de banda" },
+  { id: "011", slug: "growth-trail", title: "Growth Trail", cover: "/images/lab/growth-trail-11.png", alt: "Growth Trail — estudo gráfico experimental" },
+  { id: "012", slug: "arthezary", title: "Arthezary", cover: "/images/lab/arthezary-12.webp", alt: "Arthezary — identidade visual" },
+  { id: "013", slug: "yapex", title: "Yapex", cover: "/images/lab/yapex-13.webp", alt: "Yapex — identidade visual" },
+  { id: "014", slug: "br2t", title: "BR2T", cover: "/images/lab/br2t-14.png", alt: "BR2T — identidade visual" },
+  { id: "015", slug: "paula-monteiro", title: "Paula Monteiro", cover: "/images/lab/paula-monteiro-15.png", alt: "Paula Monteiro — identidade visual" },
+  { id: "016", slug: "off-shore-presents-story", title: "Off Shore Presents Story", cover: "/images/lab/off-shore-presents-story-16.jpg", alt: "Off Shore Presents — story experimental" },
+  { id: "017", slug: "arthezary-bag", title: "Arthezary Bag", cover: "/images/lab/arthezary-bag-17.png", alt: "Aplicação de bolsa Arthezary" },
 ];
 
 function LabPage() {
